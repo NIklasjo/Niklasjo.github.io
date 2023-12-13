@@ -10,6 +10,7 @@
 <link href="css/pretty.css" rel="stylesheet">
 <link href="css/wb18_pretty.css" rel="stylesheet">
 <script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/jquery.cookiebar.js"></script>
 <script src="js/jquery-ui.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -69,6 +70,7 @@ $(document).ready(function()
       event.preventDefault();
       $('html, body').stop().animate({ scrollTop: $('#intro').offset().top }, 600, 'easeOutQuad');
    });
+   $.cookieBar();
    function onScrollHeading4()
    {
       var $obj = $("#wb_Heading4");
@@ -105,6 +107,7 @@ $(document).ready(function()
    }
 });
 </script>
+if(jQuery.cookieBar('cookies')){
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VKHVM5ZNQR"></script>
 <script>
@@ -113,7 +116,7 @@ $(document).ready(function()
   gtag('js', new Date());
 
   gtag('config', 'G-VKHVM5ZNQR');
-</script></head>
+}</script></head>
 <body>
 <div id="wb_header">
 <div id="header">
