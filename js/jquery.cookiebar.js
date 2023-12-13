@@ -23,7 +23,7 @@
 			var doReturn = false;
 		}
 		var defaults = {
-			message: 'We use cookies to track usage and preferences.', //Message displayed on bar
+			message: 'Vi använder cookies för att spåra användning och preferenser.', //Message displayed on bar
 			acceptButton: true, //Set to true to show accept/enable button
 			acceptText: 'I Understand', //Text on accept/enable button
 			acceptFunction: function(cookieValue){if(cookieValue!='enabled' && cookieValue!='accepted') window.location = window.location.href;}, //Function to run after accept
