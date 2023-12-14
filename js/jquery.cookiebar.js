@@ -33,13 +33,13 @@
 			policyButton: true, //Set to true to show Privacy Policy button
 			policyText: 'Integritetspolicy', //Text on Privacy Policy button
 			policyURL: '/Integritetspolicy/', //URL of Privacy Policy
-			autoEnable: true, //Set to true for cookies to be accepted automatically. Banner still shows
-			acceptOnContinue: false, //Set to true to accept cookies when visitor moves to another page
+			autoEnable: false, //Set to true for cookies to be accepted automatically. Banner still shows
+			acceptOnContinue: true, //Set to true to accept cookies when visitor moves to another page
 			acceptOnScroll: false, //Set to true to accept cookies when visitor scrolls X pixels up or down
 			acceptAnyClick: false, //Set to true to accept cookies when visitor clicks anywhere on the page
 			expireDays: 1825, //Number of days for cookieBar cookie to be stored for
 			renewOnVisit: false, //Renew the cookie upon revisit to website
-			forceShow: false, //Force cookieBar to show regardless of user cookie preference
+			forceShow: true, //Force cookieBar to show regardless of user cookie preference
 			effect: 'fade', //Options: slide, fade, hide
 			element: 'body', //Element to append/prepend cookieBar to. Remember "." for class or "#" for id.
 			append: false, //Set to true for cookieBar HTML to be placed at base of website. Actual position may change according to CSS
