@@ -1,101 +1,3 @@
-<?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-require __DIR__.'/Exception.php';
-require __DIR__.'/PHPMailer.php';
-require __DIR__.'/SMTP.php';
-function ValidateEmail($email)
-{
-   $pattern = '/^([0-9a-z]([-.\w]*[0-9a-z])*@(([0-9a-z])+([-\w]*[0-9a-z])*\.)+[a-z]{2,6})$/i';
-   return preg_match($pattern, $email);
-}
-function ReplaceVariables($code)
-{
-   foreach ($_POST as $key => $value)
-   {
-      if (is_array($value))
-      {
-         $value = implode(",", $value);
-      }
-      $name = "$" . $key;
-      $code = str_replace($name, $value, $code);
-   }
-   $code = str_replace('$ipaddress', $_SERVER['REMOTE_ADDR'], $code);
-   return $code;
-}
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['formid']) && $_POST['formid'] == 'layoutgrid1')
-{
-   $mailto = 'niklas@knsc.se';
-   $mailfrom = isset($_POST['email']) ? $_POST['email'] : $mailto;
-   $subject = 'Meddelande från hemsidan';
-   $message = '<font style="color:#000000;font-family:Arial;font-size:16px"><strong>Namn:</strong> $name<br><strong>Email:</strong> $email<br><strong><br>Meddelande:<br></strong></font><font style="color:#000000;font-family:MS Shell Dlg;font-size:11px"><br></font><font style="color:#000000;font-family:MS Shell Dlg;font-size:16px">$comment</font>';
-   $success_url = '';
-   $error_url = '';
-   $eol = "\n";
-   $error = '';
-   $mail = new PHPMailer(true);
-   try
-   {
-      $subject = ReplaceVariables($subject);
-      $mail->Subject = stripslashes($subject);
-      $mail->From = $mailfrom;
-      $mail->FromName = $mailfrom;
-      $mailto_array = explode(",", $mailto);
-      for ($i = 0; $i < count($mailto_array); $i++)
-      {
-         if(trim($mailto_array[$i]) != "")
-         {
-            $mail->AddAddress($mailto_array[$i], "");
-         }
-      }
-      if (!ValidateEmail($mailfrom))
-      {
-         $error .= "The specified email address (" . $mailfrom . ") is invalid!\n<br>";
-         throw new Exception($error);
-      }
-      $mail->AddReplyTo($mailfrom);
-      $mail->CharSet = 'UTF-8';
-      if (!empty($_FILES))
-      {
-         foreach ($_FILES as $key => $value)
-         {
-            if (is_array($_FILES[$key]['name']))
-            {
-               $count = count($_FILES[$key]['name']);
-               for ($file = 0; $file < $count; $file++)
-               {
-                  if ($_FILES[$key]['error'][$file] == 0)
-                  {
-                     $mail->AddAttachment($_FILES[$key]['tmp_name'][$file], $_FILES[$key]['name'][$file]);
-                  }
-               }
-            }
-            else
-            {
-               if ($_FILES[$key]['error'] == 0)
-               {
-                  $mail->AddAttachment($_FILES[$key]['tmp_name'], $_FILES[$key]['name']);
-               }
-            }
-         }
-      }
-      $message = ReplaceVariables($message);
-      $message = stripslashes($message);
-      $mail->MsgHTML($message);
-      $mail->IsHTML(true);
-      $mail->Send();
-      header('Location: '.$success_url);
-   }
-   catch (Exception $e)
-   {
-      $errorcode = file_get_contents($error_url);
-      $replace = "##error##";
-      $errorcode = str_replace($replace, $e->getMessage(), $errorcode);
-      echo $errorcode;
-   }
-   exit;
-}
-?>
 <!doctype html>
 <html>
 <head>
@@ -106,36 +8,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['formid']) && $_POST['f
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400&display=swap" rel="stylesheet">
 <link href="css/KNS_Consulting_AB.css" rel="stylesheet">
 <link href="css/index.css" rel="stylesheet">
-<link href="css/jquery.cookiebar.css" rel="stylesheet">
 <script src="js/jquery-1.12.4.min.js"></script>
-<script src="js/jquery.cookiebar.js"></script>
 <script src="js/skrollr.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.ui.effect.min.js"></script>
 <script src="js/wwb18.min.js"></script>
-<script>
-$(document).ready(function(){
-  $.cookieBar();
-});
-</script>
-<script>
-if(jQuery.cookieBar('cookies')){
-  (function(){
-    var gtagScript = document.createElement('script');
-    gtagScript.async = true;
-    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-VKHVM5ZNQR';
-    document.head.appendChild(gtagScript);
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-VKHVM5ZNQR');
-  })();
-}
-</script>
 <script src="js/index.js"></script>
 </head>
 <body>
+   <form action="https://formspree.io/f/meqyjqjb" method="POST">
+      <label>
+    Ditt namn:
+         <input type="text" name="name" required>
+      </label>
+      <label>
+    Din e-post:
+         <input type="email" name="email" required>
+      </label>
+      <label>
+    Ditt meddelande:
+         <textarea name="message" required></textarea>
+      </label>
+      <button type="submit">Skicka</button>
+   </form>
    <div id="container">
          </div>
    <div id="StickyLayer" data-250-start="opacity:1;" data-start="opacity:0;">
@@ -258,8 +154,7 @@ if(jQuery.cookieBar('cookies')){
       </div>
    </div>
    <div id="wb_LayoutGrid1">
-      <form name="Meddelande" method="post" action="<?php echo basename(__FILE__); ?>" enctype="multipart/form-data" id="LayoutGrid1">
-         <input type="hidden" name="formid" value="layoutgrid1">
+      <div id="LayoutGrid1">
          <div class="row">
             <div class="col-1">
                <div id="wb_Card5" class="card">
@@ -281,18 +176,18 @@ if(jQuery.cookieBar('cookies')){
                   <input type="text" id="Editbox3" name="name" value="" spellcheck="false" placeholder="Namn">
                   <label id="Editbox3-label" for="Editbox3">Namn</label>
                </div>
-               <div id="wb_Editbox2">
-                  <input type="text" id="Editbox2" name="email" value="" spellcheck="false" placeholder="Email">
-                  <label id="Editbox2-label" for="Editbox2">Email</label>
+               <div id="wb_email">
+                  <input type="text" id="email" name="email" value="" spellcheck="false" placeholder="Email">
+                  <label id="email-label" for="email">Email</label>
                </div>
-               <div id="wb_TextArea2">
-                  <textarea name="comment" id="TextArea2" rows="6" cols="174" spellcheck="false" placeholder="Meddelande"></textarea>
-                  <label id="TextArea2-label" for="TextArea2">Meddelande</label>
+               <div id="wb_message">
+                  <textarea name="message" id="message" rows="6" cols="174" spellcheck="false" placeholder="Meddelande"></textarea>
+                  <label id="message-label" for="message">Meddelande</label>
                </div>
-               <input type="submit" id="Button5" name="send" value="Skicka">
+               <input type="submit" id="Send" name="submit" value="Send">
             </div>
          </div>
-      </form>
+      </div>
    </div>
    <div id="wb_footer">
       <div id="footer">
