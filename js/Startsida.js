@@ -23,10 +23,10 @@
          skrollr.init({forceHeight: false, mobileCheck: function() { return false; }, smoothScrolling: false});
       }
       skrollrInit();
-      $("a[href*='#FlexContainer2']").click(function(event)
+      $("a[href*='#LayoutGrid6']").click(function(event)
       {
          event.preventDefault();
-         $('html, body').stop().animate({ scrollTop: $('#FlexContainer2').offset().top }, 600, 'easeOutQuint');
+         $('html, body').stop().animate({ scrollTop: $('#wb_LayoutGrid6').offset().top }, 600, 'easeOutSine');
       });
       $("a[href*='#FlexContainer1']").click(function(event)
       {
