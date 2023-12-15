@@ -13,6 +13,6 @@ function SearchPage(url, title, keywords, description)
 function SearchDatabase()
 {
    database_length = 0;
-   this[database_length++] = new SearchPage("Startsida.html", "", "Copyright © 2024 KNS Consulting AB  All Rights Reserved  Utforska våra skräddarsydda Google Sheets-lösningar  Fakturerings-, Ordersystem och CRM, utvecklade för att optimera och effektivisera affärsprocesser  Utforska våra anpassningsbara tjänster inom Google Sheets och Excel, från detaljerad automatisering och dataanalys till support för både små och stora behov  Utforska våra projekt inom elinstallation  en översikt av genomförda projekt som återspeglar vår gedigna erfarenhet och kapacitet i branschen  Utforska vårt utbud av tjänster inom projektledning och bygg, anpassade för att möta dina specifika behov, med fokus på kvalitet och effektivitet   ", "");
+   this[database_length++] = new SearchPage("index.html", "", "Copyright © 2024 KNS Consulting AB  All Rights Reserved   ", "");
    return this;
 }

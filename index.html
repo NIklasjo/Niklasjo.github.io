@@ -1,3 +1,101 @@
+<?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require __DIR__.'/Exception.php';
+require __DIR__.'/PHPMailer.php';
+require __DIR__.'/SMTP.php';
+function ValidateEmail($email)
+{
+   $pattern = '/^([0-9a-z]([-.\w]*[0-9a-z])*@(([0-9a-z])+([-\w]*[0-9a-z])*\.)+[a-z]{2,6})$/i';
+   return preg_match($pattern, $email);
+}
+function ReplaceVariables($code)
+{
+   foreach ($_POST as $key => $value)
+   {
+      if (is_array($value))
+      {
+         $value = implode(",", $value);
+      }
+      $name = "$" . $key;
+      $code = str_replace($name, $value, $code);
+   }
+   $code = str_replace('$ipaddress', $_SERVER['REMOTE_ADDR'], $code);
+   return $code;
+}
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['formid']) && $_POST['formid'] == 'layoutgrid1')
+{
+   $mailto = 'niklas@knsc.se';
+   $mailfrom = isset($_POST['email']) ? $_POST['email'] : $mailto;
+   $subject = 'Meddelande från hemsidan';
+   $message = '<font style="color:#000000;font-family:Arial;font-size:16px"><strong>Namn:</strong> $name<br><strong>Email:</strong> $email<br><strong><br>Meddelande:<br></strong></font><font style="color:#000000;font-family:MS Shell Dlg;font-size:11px"><br></font><font style="color:#000000;font-family:MS Shell Dlg;font-size:16px">$comment</font>';
+   $success_url = '';
+   $error_url = '';
+   $eol = "\n";
+   $error = '';
+   $mail = new PHPMailer(true);
+   try
+   {
+      $subject = ReplaceVariables($subject);
+      $mail->Subject = stripslashes($subject);
+      $mail->From = $mailfrom;
+      $mail->FromName = $mailfrom;
+      $mailto_array = explode(",", $mailto);
+      for ($i = 0; $i < count($mailto_array); $i++)
+      {
+         if(trim($mailto_array[$i]) != "")
+         {
+            $mail->AddAddress($mailto_array[$i], "");
+         }
+      }
+      if (!ValidateEmail($mailfrom))
+      {
+         $error .= "The specified email address (" . $mailfrom . ") is invalid!\n<br>";
+         throw new Exception($error);
+      }
+      $mail->AddReplyTo($mailfrom);
+      $mail->CharSet = 'UTF-8';
+      if (!empty($_FILES))
+      {
+         foreach ($_FILES as $key => $value)
+         {
+            if (is_array($_FILES[$key]['name']))
+            {
+               $count = count($_FILES[$key]['name']);
+               for ($file = 0; $file < $count; $file++)
+               {
+                  if ($_FILES[$key]['error'][$file] == 0)
+                  {
+                     $mail->AddAttachment($_FILES[$key]['tmp_name'][$file], $_FILES[$key]['name'][$file]);
+                  }
+               }
+            }
+            else
+            {
+               if ($_FILES[$key]['error'] == 0)
+               {
+                  $mail->AddAttachment($_FILES[$key]['tmp_name'], $_FILES[$key]['name']);
+               }
+            }
+         }
+      }
+      $message = ReplaceVariables($message);
+      $message = stripslashes($message);
+      $mail->MsgHTML($message);
+      $mail->IsHTML(true);
+      $mail->Send();
+      header('Location: '.$success_url);
+   }
+   catch (Exception $e)
+   {
+      $errorcode = file_get_contents($error_url);
+      $replace = "##error##";
+      $errorcode = str_replace($replace, $e->getMessage(), $errorcode);
+      echo $errorcode;
+   }
+   exit;
+}
+?>
 <!doctype html>
 <html>
 <head>
@@ -7,21 +105,13 @@
 <link href="css/font-awesome.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400&display=swap" rel="stylesheet">
 <link href="css/KNS_Consulting_AB.css" rel="stylesheet">
-<link href="css/Startsida.css" rel="stylesheet">
-<link href="css/jquery.cookiebar.css" rel="stylesheet">
+<link href="css/index.css" rel="stylesheet">
 <script src="js/jquery-1.12.4.min.js"></script>
-<script src="js/jquery.cookiebar.js"></script>
 <script src="js/skrollr.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.ui.effect.min.js"></script>
 <script src="js/wwb18.min.js"></script>
-<script>
-$(document).ready(function(){
-  $.cookieBar();
-});
-</script>
-<script>
 if(jQuery.cookieBar('cookies')){
   (function(){
     var gtagScript = document.createElement('script');
@@ -34,28 +124,20 @@ if(jQuery.cookieBar('cookies')){
     gtag('config', 'G-VKHVM5ZNQR');
   })();
 }
-</script>
-<script src="js/Startsida.js"></script>
+<script src="js/index.js"></script>
 </head>
 <body>
    <div id="container">
-            <div id="wb_Breadcrumb1">
-         <ul id="Breadcrumb1">
-            <li><a href="">Home</a></li>
-            <li><a href="">Parent Category</a></li>
-            <li><a href="">Current Category</a></li>
-         </ul>
-      </div>
-   </div>
+         </div>
    <div id="StickyLayer" data-250-start="opacity:1;" data-start="opacity:0;">
       <div id="wb_up-arrow">
          <a href="#jumbotron"><div id="up-arrow"><i class="fa fa-angle-up"></i></div></a></div>
    </div>
-   <div id="wb_LayoutGrid6">
-      <div id="LayoutGrid6">
+   <div id="wb_Header">
+      <div id="Header">
          <div class="col-1">
             <div id="wb_Image1">
-               <img src="images/logo_KNSC.png" id="Image1" alt="" width="286" height="28">
+               <a href="./index.html"><img src="images/logo_KNSC.png" id="Image1" alt="Logo med text till hemsida KNS Consulting AB" title="Logo" width="286" height="28"></a>
             </div>
          </div>
          <div class="col-2">
@@ -90,8 +172,8 @@ if(jQuery.cookieBar('cookies')){
          </div>
       </div>
    </div>
-   <div id="wb_FlexContainer1" data-top="transform:;transform:;">
-      <div id="FlexContainer1">
+   <div id="wb_FlexContainer_bakgrundsbild" data-top="transform:;transform:;">
+      <div id="FlexContainer_bakgrundsbild">
       </div>
    </div>
    <div id="wb_LayoutGrid5">
@@ -100,57 +182,64 @@ if(jQuery.cookieBar('cookies')){
          </div>
       </div>
    </div>
-   <div id="wb_LayoutGrid2">
-      <div id="LayoutGrid2">
+   <div id="wb_LayoutGrid3">
+      <div id="LayoutGrid3">
          <div class="row">
             <div class="col-1">
                <picture id="wb_FontAwesomeIcon1">
-                  <source media="(max-width:1913px)" srcset="images/Sheets.png">
                   <img src="images/Sheets.png" id="FontAwesomeIcon1" alt="" width="52" height="71">
                </picture>
-               <div id="wb_Heading1">
-                  <h1 id="Heading1">Tjänster Sheets/Excel</h1>
+               <div id="wb_Card1" class="card">
+                  <div id="Card1-card-header"></div>
+                  <div id="Card1-card-body">
+                     <div id="Card1-card-item1">Tjänster Sheets/Excel</div>
+                     <div id="Card1-card-item2">Utforska våra anpassningsbara tjänster inom Google Sheets och Excel, från detaljerad automatisering och dataanalys till support för både små och stora behov.</div>
+                     <div id="Card1-card-item3"><a href="https://www.wysiwygwebbuilder.com">Läs mer</a></div>
+                  </div>
+                  <div id="Card1-card-footer"></div>
                </div>
-               <div id="wb_Text1">
-                  <span style="color:#696969;font-family:Arial;font-size:15px;">Utforska våra anpassningsbara tjänster inom Google Sheets och Excel, från detaljerad automatisering och dataanalys till support för både små och stora behov.</span>
-               </div>
-               <input type="submit" id="Button2" name="" value="Läs mer">
             </div>
             <div class="col-2">
                <div id="wb_FontAwesomeIcon2">
                   <img src="images/laptop.png" id="FontAwesomeIcon2" alt="" width="120" height="88">
                </div>
-               <div id="wb_Heading2">
-                  <h1 id="Heading2">Projekt Google sheets </h1>
+               <div id="wb_Card2" class="card">
+                  <div id="Card2-card-header"></div>
+                  <div id="Card2-card-body">
+                     <div id="Card2-card-item1">Projekt Google Sheets</div>
+                     <div id="Card2-card-item2">Utforska våra skräddarsydda Google Sheets-lösningar: Fakturerings-, Ordersystem och CRM, utvecklade för att optimera och effektivisera affärsprocesser.</div>
+                     <div id="Card2-card-item3"><a href="https://www.wysiwygwebbuilder.com">Läs mer</a></div>
+                  </div>
+                  <div id="Card2-card-footer"></div>
                </div>
-               <div id="wb_Text2">
-                  <span style="color:#696969;font-family:Arial;font-size:15px;">Utforska våra skräddarsydda Google Sheets-lösningar: Fakturerings-, Ordersystem och CRM, utvecklade för att optimera och effektivisera affärsprocesser.</span>
-               </div>
-               <input type="submit" id="Button1" name="" value="Läs mer">
             </div>
             <div class="col-3">
                <div id="wb_FontAwesomeIcon3">
                   <div id="FontAwesomeIcon3"><i class="fa fa-building-o"></i></div>
                </div>
-               <div id="wb_Heading3">
-                  <h1 id="Heading3">Projektreferenser inom bygg</h1>
+               <div id="wb_Card3" class="card">
+                  <div id="Card3-card-header"></div>
+                  <div id="Card3-card-body">
+                     <div id="Card3-card-item1">Referensprojekt bygg</div>
+                     <div id="Card3-card-item2">Utforska våra projekt inom elinstallation: en översikt av genomförda projekt som återspeglar vår gedigna erfarenhet och kapacitet i branschen.</div>
+                     <div id="Card3-card-item3"><a href="https://www.wysiwygwebbuilder.com">Läs mer</a></div>
+                  </div>
+                  <div id="Card3-card-footer"></div>
                </div>
-               <div id="wb_Text3">
-                  <span style="color:#696969;font-family:Arial;font-size:15px;">Utforska våra projekt inom elinstallation: en översikt av genomförda projekt som återspeglar vår gedigna erfarenhet och kapacitet i branschen.</span>
-               </div>
-               <input type="submit" id="Button3" name="" value="Läs mer">
             </div>
             <div class="col-4">
                <div id="wb_FontAwesomeIcon4">
                   <div id="FontAwesomeIcon4"><i class="fa fa-calendar-check-o"></i></div>
                </div>
-               <div id="wb_Heading4">
-                  <h1 id="Heading4">Våra tjänster inom bygg</h1>
+               <div id="wb_Card4" class="card">
+                  <div id="Card4-card-header"></div>
+                  <div id="Card4-card-body">
+                     <div id="Card4-card-item1">Våra tjänster inom bygg</div>
+                     <div id="Card4-card-item2">Utforska vårt utbud av tjänster inom projektledning och bygg, anpassade för att möta dina specifika behov, med fokus på kvalitet och effektivitet.</div>
+                     <div id="Card4-card-item3"><a href="https://www.wysiwygwebbuilder.com">Läs mer</a></div>
+                  </div>
+                  <div id="Card4-card-footer"></div>
                </div>
-               <div id="wb_Text4">
-                  <span style="color:#696969;font-family:Arial;font-size:15px;">Utforska vårt utbud av tjänster inom projektledning och bygg, anpassade för att möta dina specifika behov, med fokus på kvalitet och effektivitet.</span>
-               </div>
-               <input type="submit" id="Button4" name="" value="Läs mer">
             </div>
          </div>
       </div>
@@ -160,17 +249,18 @@ if(jQuery.cookieBar('cookies')){
       </div>
    </div>
    <div id="wb_LayoutGrid1">
-      <div id="LayoutGrid1">
+      <form name="Meddelande" method="post" action="<?php echo basename(__FILE__); ?>" enctype="multipart/form-data" id="LayoutGrid1">
+         <input type="hidden" name="formid" value="layoutgrid1">
          <div class="row">
             <div class="col-1">
-               <div id="wb_Card1" class="card">
-                  <div id="Card1-card-body">
-                     <div id="Card1-card-item0">KNS Consulting AB</div>
-                     <div id="Card1-card-item1">Specialiserad på projektledning för elinstallationer och IT-tjänster med fokus på Google Sheets och Excel. Med gedigen erfarenhet i branschen erbjuder vi ett brett utbud av tjänster, inklusive projekt- och byggledning, beställarstöd, projektadministration samt skräddarsydda IT-lösningar för effektiv datahantering och analys. Verksamheten inriktar sig främst på el- och byggbranschen i Mälardalen, men erbjuder också IT-stöd som förbättrar kundernas produktivitet och processhantering. KNS Consulting är synonymt med professionalism och kvalitet, och levererar skräddarsydda, pålitliga lösningar.</div>
-                     <div id="Card1-card-item2">Mobil: 072-445 68 78</div>
-                     <div id="Card1-card-item3">Email: info@knsc.se</div>
-                     <div id="Card1-card-item4"><i class="fa fa-envelope"></i></div>
-                     <div id="Card1-card-item5"><i class="fa fa-linkedin"></i></div>
+               <div id="wb_Card5" class="card">
+                  <div id="Card5-card-body">
+                     <div id="Card5-card-item0">KNS Consulting AB</div>
+                     <div id="Card5-card-item1">Specialiserad på projektledning för elinstallationer och IT-tjänster med fokus på Google Sheets och Excel. Med gedigen erfarenhet i branschen erbjuder vi ett brett utbud av tjänster, inklusive projekt- och byggledning, beställarstöd, projektadministration samt skräddarsydda IT-lösningar för effektiv datahantering och analys. Verksamheten inriktar sig främst på el- och byggbranschen i Mälardalen, men erbjuder också IT-stöd som förbättrar kundernas produktivitet och processhantering. KNS Consulting är synonymt med professionalism och kvalitet, och levererar skräddarsydda, pålitliga lösningar.</div>
+                     <div id="Card5-card-item2">Mobil: 072-445 68 78</div>
+                     <div id="Card5-card-item3">Email: info@knsc.se</div>
+                     <div id="Card5-card-item4"><i class="fa fa-envelope"></i></div>
+                     <div id="Card5-card-item5"><i class="fa fa-linkedin"></i></div>
                   </div>
                </div>
             </div>
@@ -190,21 +280,28 @@ if(jQuery.cookieBar('cookies')){
                   <textarea name="comment" id="TextArea2" rows="6" cols="174" spellcheck="false" placeholder="Meddelande"></textarea>
                   <label id="TextArea2-label" for="TextArea2">Meddelande</label>
                </div>
-               <input type="submit" id="Button5" name="" value="Skicka">
+               <input type="submit" id="Button5" name="send" value="Skicka">
             </div>
          </div>
-      </div>
+      </form>
    </div>
    <div id="wb_footer">
       <div id="footer">
-         <div class="row">
-            <div class="col-1">
-               <div id="wb_footerText">
-                  <span style="color:#787878;">Copyright © 2024 KNS Consulting AB.&nbsp; All Rights Reserved</span>
-               </div>
+         <div class="col-1">
+            <div id="wb_Breadcrumb1">
+               <ul id="Breadcrumb1">
+                  <li><a href="#LayoutGrid1" title="index">index</a></li>
+               </ul>
             </div>
+         </div>
+         <div class="col-2">
+            <div id="wb_footerText">
+               <span style="color:#787878;">Copyright © 2024 KNS Consulting AB.&nbsp; All Rights Reserved</span>
+            </div>
+         </div>
+         <div class="col-3">
          </div>
       </div>
    </div>
-</body>
+   </body>
 </html>

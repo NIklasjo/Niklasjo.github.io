@@ -135,10 +135,7 @@ h2, .h2
    border: 1px solid #FFFFFF;
    --border-color: #FFFFFF;
 }
-@media only screen and (min-width: 1920px)
-{
-}
-@media only screen and (min-width: 1280px) and (max-width: 1919px)
+@media only screen and (min-width: 1280px) and (max-width: 1913px)
 {
 }
 @media only screen and (min-width: 1024px) and (max-width: 1279px)
@@ -147,9 +144,6 @@ h2, .h2
 @media only screen and (min-width: 768px) and (max-width: 1023px)
 {
 }
-@media only screen and (min-width: 480px) and (max-width: 767px)
-{
-}
-@media only screen and (max-width: 479px)
+@media only screen and (max-width: 767px)
 {
 }
