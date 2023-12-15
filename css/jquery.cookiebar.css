@@ -9,3 +9,7 @@
 #cookie-bar .cb-disable:hover {background:#FFEBEE;}
 #cookie-bar .cb-policy {background:#BBDEFB;}
 #cookie-bar .cb-policy:hover {background:#E3F2FD;}
+#cookie-bar {
+    z-index: 9999; /* A high z-index value */
+    position: relative; /* Ensure the element is positioned */
+}
