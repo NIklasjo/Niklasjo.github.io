@@ -292,7 +292,7 @@ body
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
-   padding: 25px 0 25px 0;
+   padding: 20px 0 20px 0;
    margin-right: auto;
    margin-left: auto;
 }
@@ -1460,51 +1460,6 @@ body
    font-size:11.33px;
    padding-top: 4px;
 }
-#Breadcrumb1
-{
-   list-style: none;
-   padding: 8px 15px 8px 15px;
-   background-color: #F6F6F6;
-   background-image: none;
-   border: 1px solid #C5C5C5;
-   border-radius: 4px;
-   font-family: Arial;
-   font-weight: normal;
-   font-style: normal;
-   font-size: 0;
-   margin: 0;
-   text-align: left;
-}
-#Breadcrumb1 > li
-{
-   display: inline-block;
-   font-size: 13px;
-}
-#Breadcrumb1 a
-{
-   color: #454545;
-   text-decoration: none;
-}
-#Breadcrumb1 a:hover
-{
-   color: #2B2B2B;
-   text-decoration: underline;
-}
-#Breadcrumb1 > .active
-{
-   color: #777777;
-}
-#Breadcrumb1 > .active a
-{
-   color: inherit;
-   pointer-events: none;
-}
-#Breadcrumb1 > li + li:before
-{
-   content: "/";
-   padding: 0 5px;
-   color: #C0C0C0;
-}
 #wb_Image1
 {
    height: 100%;
@@ -1699,16 +1654,6 @@ body
    height: 28px;
    z-index: 2;
 }
-#wb_Breadcrumb1
-{
-   position: absolute;
-   left: 133px;
-   top: 1939px;
-   width: 1914px;
-   height: 79px;
-   z-index: 28;
-   vertical-align: top;
-}
 #wb_Card1
 {
    display: flex;
@@ -1830,7 +1775,7 @@ body
    bottom: 25px;
    width: 50px;
    height: 50px;
-   z-index: 29;
+   z-index: 28;
 }
 #wb_FontAwesomeIcon4
 {
@@ -1944,7 +1889,7 @@ body
 #LayoutGrid5
 {
    height: 10vh;
-   padding: 25px 0 25px 0;
+   padding: 20px 0 20px 0;
 }
 #LayoutGrid5 > .col-1
 {
@@ -2638,7 +2583,7 @@ body
 #LayoutGrid5
 {
    height: 10vh;
-   padding: 25px 0 25px 0;
+   padding: 20px 0 20px 0;
 }
 #LayoutGrid5 > .col-1
 {
@@ -3332,7 +3277,7 @@ body
 #LayoutGrid5
 {
    height: 10vh;
-   padding: 25px 0 25px 0;
+   padding: 20px 0 20px 0;
 }
 #LayoutGrid5 > .col-1
 {
@@ -4026,7 +3971,7 @@ body
 #LayoutGrid5
 {
    height: 10vh;
-   padding: 25px 0 25px 0;
+   padding: 20px 0 20px 0;
 }
 #LayoutGrid5 > .col-1
 {
@@ -4720,7 +4665,7 @@ body
 #LayoutGrid5
 {
    height: 10vh;
-   padding: 25px 0 25px 0;
+   padding: 20px 0 20px 0;
 }
 #LayoutGrid5 > .col-1
 {
@@ -5414,7 +5359,7 @@ body
 #LayoutGrid5
 {
    height: 10vh;
-   padding: 25px 0 25px 0;
+   padding: 20px 0 20px 0;
 }
 #LayoutGrid5 > .col-1
 {
