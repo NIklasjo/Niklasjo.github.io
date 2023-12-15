@@ -106,12 +106,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['formid']) && $_POST['f
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400&display=swap" rel="stylesheet">
 <link href="css/KNS_Consulting_AB.css" rel="stylesheet">
 <link href="css/index.css" rel="stylesheet">
+<link href="css/jquery.cookiebar.css" rel="stylesheet">
 <script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/jquery.cookiebar.js"></script>
 <script src="js/skrollr.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.ui.effect.min.js"></script>
 <script src="js/wwb18.min.js"></script>
+<script>
+$(document).ready(function(){
+  $.cookieBar();
+});
+</script>
+<script>
 if(jQuery.cookieBar('cookies')){
   (function(){
     var gtagScript = document.createElement('script');
@@ -124,6 +132,7 @@ if(jQuery.cookieBar('cookies')){
     gtag('config', 'G-VKHVM5ZNQR');
   })();
 }
+</script>
 <script src="js/index.js"></script>
 </head>
 <body>
