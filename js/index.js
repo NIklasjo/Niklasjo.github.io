@@ -65,6 +65,23 @@
          $('html, body').stop().animate({ scrollTop: $('#wb_LayoutGrid1').offset().top-68 }, 600, 'easeOutCirc');
       });
    });
+   
+   $(document).ready(function(){
+     $.cookieBar();
+   });
+   
+   if(jQuery.cookieBar('cookies')){
+     (function(){
+       var gtagScript = document.createElement('script');
+       gtagScript.async = true;
+       gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-VKHVM5ZNQR';
+       document.head.appendChild(gtagScript);
+       window.dataLayer = window.dataLayer || [];
+       function gtag() { dataLayer.push(arguments); }
+       gtag('js', new Date());
+       gtag('config', 'G-VKHVM5ZNQR');
+     })();
+   }
       
       var wb_Timer1;
       function TimerStartTimer1()
