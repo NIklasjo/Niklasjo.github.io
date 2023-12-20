@@ -16,32 +16,11 @@ Företagsöversikt
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400&display=swap" rel="stylesheet">
 <link href="css/KNS_Consulting_AB.css" rel="stylesheet">
 <link href="css/index.css" rel="stylesheet">
-<link href="css/jquery.cookiebar.css" rel="stylesheet">
 <script src="js/jquery-1.12.4.min.js"></script>
-<script src="js/jquery.cookiebar.js"></script>
 <script src="js/jquery.ui.effect.min.js"></script>
 <script src="js/skrollr.min.js"></script>
 <script src="js/wwb18.min.js"></script>
 <script src="js/index.js"></script>
-<script>
-$(document).ready(function(){
-  $.cookieBar();
-});
-</script>
-<script>
-if(jQuery.cookieBar('cookies')){
-  (function(){
-    var gtagScript = document.createElement('script');
-    gtagScript.async = true;
-    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-VKHVM5ZNQR';
-    document.head.appendChild(gtagScript);
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-VKHVM5ZNQR');
-  })();
-}
-</script>
 </head>
 <body>
    <div id="container">
@@ -189,7 +168,7 @@ if(jQuery.cookieBar('cookies')){
                   <label id="email-label" for="email">Email</label>
                </div>
                <div id="wb_message">
-                  <textarea name="message" id="message" rows="6" cols="101" spellcheck="false" placeholder="Meddelande"></textarea>
+                  <textarea name="message" id="message" rows="6" cols="174" spellcheck="false" placeholder="Meddelande"></textarea>
                   <label id="message-label" for="message">Meddelande</label>
                </div>
                <input type="submit" id="Send" name="submit" value="Send">
