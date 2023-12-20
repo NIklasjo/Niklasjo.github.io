@@ -1,28 +1,6 @@
    
-   document.addEventListener('DOMContentLoaded', function(event)
-   {
-      var darkmode_switch = document.querySelector('#darkmode_switch');
-      var bsdarkmode_switch = new bootstrap.Tooltip(darkmode_switch, {offset:[0,14],placement:'bottom', html: true, sanitize: false, title: '<span style="color:#000000;font-family:Arial;font-size:13px;">Click the icon to toggle between dark and light mode</span>', trigger: 'manual', animation: true, customClass:'ToolTip1'});
-      darkmode_switch.addEventListener('inserted.bs.tooltip', function(e)
-      {
-         var tooltip = document.getElementById(e.target.getAttribute('aria-describedby'));
-         tooltip.classList.add('animate-show');
-      });
-      darkmode_switch.addEventListener('hide.bs.tooltip', function(e)
-      {
-         var tooltip = document.getElementById(e.target.getAttribute('aria-describedby'));
-         tooltip.classList.remove('animate-show');
-         var forceReflow = e.target.offsetWidth;
-      });
-   });
-   
    $(document).ready(function()
    {
-      function skrollrInit()
-      {
-         skrollr.init({forceHeight: false, mobileCheck: function() { return false; }, smoothScrolling: false});
-      }
-      skrollrInit();
       $("a[href*='#Header']").click(function(event)
       {
          event.preventDefault();
@@ -72,22 +50,7 @@
        gtag('config', 'G-VKHVM5ZNQR');
      })();
    }
-      
-      var wb_Timer1;
-      function TimerStartTimer1()
-      {
-         wb_Timer1 = setTimeout(function()
-         {
-            var event = null;
-            bootstrap.Tooltip.getInstance('#darkmode_switch').show();
-         }, 1000);
-      }
-      function TimerStopTimer1()
-      {
-         clearTimeout(wb_Timer1);
-      }
-      TimerStartTimer1();
-         
+   
    var el = document.getElementById('LayoutGrid2');
    if (el.addEventListener)
    {
