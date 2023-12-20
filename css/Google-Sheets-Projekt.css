@@ -1712,7 +1712,7 @@ body
 }
 #LayoutGrid2
 {
-   width: 728px;
+   width: 763px;
 }
 #wb_LayoutGrid5
 {
@@ -1827,7 +1827,7 @@ body
    display: block;
    margin: 0;
    padding: 0;
-   font-size: 48px;
+   font-size: 37px;
    font-family: Arial;
    font-weight: bold;
    font-style: normal;
@@ -1847,7 +1847,7 @@ body
    font-family: Arial;
    font-weight: bold;
    font-style: normal;
-   font-size: 48px;
+   font-size: 37px;
    text-align: left;
 }
 #wb_Heading2
@@ -1857,7 +1857,7 @@ body
    display: block;
    margin: 0;
    padding: 50px 0 50px 0;
-   font-size: 32px;
+   font-size: 29px;
    font-family: Arial;
    font-weight: bold;
    font-style: normal;
@@ -1877,7 +1877,7 @@ body
    font-family: Arial;
    font-weight: bold;
    font-style: normal;
-   font-size: 32px;
+   font-size: 29px;
    text-align: left;
 }
 #wb_Heading3
@@ -1903,8 +1903,8 @@ body
 }
 #wb_SlideShow1
 {
-   width: 688px;
-   height: 382px;
+   width: 758px;
+   height: 412px;
    visibility: visible;
    display: inline-block;
 }
@@ -1931,8 +1931,8 @@ body
 }
 #wb_SlideShow2
 {
-   width: 688px;
-   height: 396px;
+   width: 758px;
+   height: 434px;
    visibility: visible;
    display: inline-block;
 }
@@ -1959,8 +1959,8 @@ body
 }
 #wb_SlideShow3
 {
-   width: 688px;
-   height: 367px;
+   width: 758px;
+   height: 402px;
    visibility: visible;
    display: inline-block;
 }

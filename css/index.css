@@ -1937,17 +1937,17 @@ body
 #LayoutGrid3
 {
    height: auto;
-   padding: 20px 15px 7px 15px;
+   padding: 20px 0 7px 0;
 }
 #LayoutGrid3 .row
 {
-   margin-right: -15px;
-   margin-left: -15px;
+   margin-right: 0px;
+   margin-left: 0px;
 }
 #LayoutGrid3 > .row > .col-1, #LayoutGrid3 > .row > .col-2, #LayoutGrid3 > .row > .col-3, #LayoutGrid3 > .row > .col-4
 {
-   padding-right: 15px;
-   padding-left: 15px;
+   padding-right: 0px;
+   padding-left: 0px;
 }
 #LayoutGrid3 > .row > .col-1
 {
