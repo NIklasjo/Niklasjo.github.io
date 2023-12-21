@@ -359,9 +359,9 @@ body
    max-width: 50%;
    display: flex;
    flex-wrap: wrap;
-   align-content: center;
+   align-content: flex-end;
    align-self: stretch;
-   align-items: center;
+   align-items: flex-end;
    justify-content: center;
    text-align: center;
 }

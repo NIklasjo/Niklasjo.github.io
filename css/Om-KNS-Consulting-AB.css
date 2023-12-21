@@ -359,9 +359,9 @@ body
    max-width: 50%;
    display: flex;
    flex-wrap: wrap;
-   align-content: center;
+   align-content: flex-end;
    align-self: stretch;
-   align-items: center;
+   align-items: flex-end;
    justify-content: center;
    text-align: center;
 }
@@ -1830,7 +1830,7 @@ body
    display: block;
 }
 }
-@media only screen and (min-width: 370px) and (max-width: 767px)
+@media only screen and (min-width: 380px) and (max-width: 767px)
 {
 div#container
 {
@@ -1886,8 +1886,8 @@ body
    border-radius: 0px;
    align-content: flex-start;
    align-items: flex-start;
-   justify-content: center;
-   text-align: center;
+   justify-content: flex-start;
+   text-align: left;
 }
 #Header > .col-2
 {
@@ -1898,8 +1898,8 @@ body
    border-radius: 0px;
    align-content: center;
    align-items: center;
-   justify-content: center;
-   text-align: center;
+   justify-content: flex-end;
+   text-align: right;
 }
 #wb_LayoutGrid2
 {
@@ -2233,7 +2233,7 @@ body
    display: block;
 }
 }
-@media only screen and (max-width: 369px)
+@media only screen and (max-width: 379px)
 {
 div#container
 {

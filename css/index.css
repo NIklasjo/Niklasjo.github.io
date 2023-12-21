@@ -499,9 +499,9 @@ body
    max-width: 50%;
    display: flex;
    flex-wrap: wrap;
-   align-content: center;
+   align-content: flex-end;
    align-self: stretch;
-   align-items: center;
+   align-items: flex-end;
    justify-content: center;
    text-align: center;
 }
@@ -536,8 +536,6 @@ body
    border: 0px solid #245580;
    border-radius: 0px;
    text-align: center;
-   animation: transform-scale-in 1000ms linear 900ms 1 normal both;
-   animation-play-state: paused;
    margin: 0;
    padding: 0;
    vertical-align: top;
@@ -574,8 +572,6 @@ body
    border-radius: 0px;
    box-sizing: border-box;
    padding: 0;
-   animation: transform-scale-in 900ms linear 1000ms 1 normal both;
-   animation-play-state: paused;
    object-fit: scale-down;
    display: inline-block;
    width: 100%;
@@ -593,8 +589,6 @@ body
    border: 0px solid #000000;
    border-radius: 0px;
    padding: 0;
-   animation: transform-scale-in 900ms linear 1000ms 1 normal both;
-   animation-play-state: paused;
    display: inline-block;
    width: 100%;
    height: 100%;
@@ -608,8 +602,6 @@ body
    border: 0px solid #245580;
    border-radius: 0px;
    text-align: center;
-   animation: transform-scale-in 1000ms linear 900ms 1 normal both;
-   animation-play-state: paused;
    margin: 0;
    padding: 0;
    vertical-align: top;
@@ -1119,8 +1111,6 @@ body
    flex-direction: column;
    box-sizing: border-box;
    margin: 0;
-   animation: transform-scale-in 1000ms linear 400ms 1 normal both;
-   animation-play-state: paused;
    background-color: #D3D3D3;
    background-image: none;
    border: 0px solid transparent;
@@ -1217,8 +1207,6 @@ body
    flex-direction: column;
    box-sizing: border-box;
    margin: 0;
-   animation: transform-scale-in 1000ms linear 400ms 1 normal both;
-   animation-play-state: paused;
    background-color: #D3D3D3;
    background-image: none;
    border: 0px solid transparent;
@@ -1315,8 +1303,6 @@ body
    flex-direction: column;
    box-sizing: border-box;
    margin: 0;
-   animation: transform-scale-in 1000ms linear 400ms 1 normal both;
-   animation-play-state: paused;
    background-color: #D3D3D3;
    background-image: none;
    border: 0px solid transparent;
@@ -1413,8 +1399,6 @@ body
    flex-direction: column;
    box-sizing: border-box;
    margin: 0;
-   animation: transform-scale-in 1000ms linear 400ms 1 normal both;
-   animation-play-state: paused;
    background-color: #D3D3D3;
    background-image: none;
    border: 0px solid transparent;
