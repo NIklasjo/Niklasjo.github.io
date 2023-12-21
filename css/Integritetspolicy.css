@@ -614,7 +614,7 @@ body
    background-color: transparent;
    margin: 0;
    animation: animate-fade-in 3000ms linear 300ms 1 normal both;
-   text-align: center;
+   text-align: right;
    z-index: 1111 !important;
 }
 #wb_CssMenu1 ul
@@ -629,7 +629,7 @@ body
 {
    float: left;
    margin: 0;
-   padding: 0px 39px 0px 0px;
+   padding: 0px 0px 0px 39px;
 }
 #wb_CssMenu1 a
 {
@@ -1034,7 +1034,7 @@ body
    visibility: visible;
    display: inline-block;
    margin: 0;
-   text-align: center;
+   text-align: right;
 }
 #wb_CssMenu1 li
 {
@@ -1104,7 +1104,7 @@ body
 }
 #wb_CssMenu1 li
 {
-   padding: 0px 39px 0px 0px;
+   padding: 0px 0px 0px 39px;
 }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px)
@@ -1347,7 +1347,7 @@ body
    visibility: visible;
    display: inline-block;
    margin: 0;
-   text-align: center;
+   text-align: right;
 }
 #wb_CssMenu1 li
 {
@@ -1417,7 +1417,7 @@ body
 }
 #wb_CssMenu1 li
 {
-   padding: 0px 39px 0px 0px;
+   padding: 0px 0px 0px 39px;
 }
 }
 @media only screen and (min-width: 380px) and (max-width: 767px)
@@ -1660,7 +1660,7 @@ body
    visibility: visible;
    display: inline-block;
    margin: 0;
-   text-align: center;
+   text-align: right;
 }
 #wb_CssMenu1 li
 {
@@ -1730,7 +1730,7 @@ body
 }
 #wb_CssMenu1 li
 {
-   padding: 0px 12px 0px 0px;
+   padding: 0px 0px 0px 12px;
 }
 }
 @media only screen and (max-width: 379px)
@@ -1973,7 +1973,7 @@ body
    visibility: visible;
    display: inline-block;
    margin: 0;
-   text-align: center;
+   text-align: right;
 }
 #wb_CssMenu1 li
 {
@@ -2043,6 +2043,6 @@ body
 }
 #wb_CssMenu1 li
 {
-   padding: 0px 12px 0px 0px;
+   padding: 0px 0px 0px 12px;
 }
 }

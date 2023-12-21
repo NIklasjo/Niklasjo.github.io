@@ -158,8 +158,8 @@ body
    box-sizing: border-box;
    font-size: 0;
    min-height: 1px;
-   padding-right: 0px;
-   padding-left: 0px;
+   padding-right: 7px;
+   padding-left: 7px;
    position: relative;
 }
 #LayoutGrid2
@@ -1383,7 +1383,7 @@ body
    background-color: transparent;
    margin: 0;
    animation: animate-fade-in 3000ms linear 300ms 1 normal both;
-   text-align: center;
+   text-align: right;
    z-index: 1111 !important;
 }
 #wb_CssMenu1 ul
@@ -1398,7 +1398,7 @@ body
 {
    float: left;
    margin: 0;
-   padding: 0px 39px 0px 0px;
+   padding: 0px 0px 0px 39px;
 }
 #wb_CssMenu1 a
 {
@@ -1579,8 +1579,8 @@ body
 {
    display: inline-block;
    position: relative;
-   width: 1714px;
-   height: 885px;
+   width: 1900px;
+   height: 979px;
    z-index: 13;
 }
 #wb_Heading5
@@ -1593,8 +1593,8 @@ body
 {
    display: inline-block;
    position: relative;
-   width: 1714px;
-   height: 963px;
+   width: 1900px;
+   height: 1066px;
    z-index: 10;
 }
 #wb_Heading2
@@ -1607,8 +1607,8 @@ body
 {
    display: inline-block;
    position: relative;
-   width: 1714px;
-   height: 909px;
+   width: 1900px;
+   height: 1005px;
    z-index: 7;
 }
 #wb_Heading3
@@ -1712,7 +1712,7 @@ body
 }
 #LayoutGrid2
 {
-   width: 1024px;
+   width: 1017px;
 }
 #wb_LayoutGrid5
 {
@@ -1933,7 +1933,7 @@ body
 }
 #wb_SlideShow1
 {
-   width: 1024px;
+   width: 1010px;
    height: 550px;
    visibility: visible;
    display: inline-block;
@@ -1987,7 +1987,7 @@ body
 }
 #wb_SlideShow2
 {
-   width: 1024px;
+   width: 1010px;
    height: 582px;
    visibility: visible;
    display: inline-block;
@@ -2041,7 +2041,7 @@ body
 }
 #wb_SlideShow3
 {
-   width: 1024px;
+   width: 1010px;
    height: 536px;
    visibility: visible;
    display: inline-block;
@@ -2068,7 +2068,7 @@ body
    visibility: visible;
    display: inline-block;
    margin: 0;
-   text-align: center;
+   text-align: right;
 }
 #wb_CssMenu1 li
 {
@@ -2138,7 +2138,7 @@ body
 }
 #wb_CssMenu1 li
 {
-   padding: 0px 39px 0px 0px;
+   padding: 0px 0px 0px 39px;
 }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px)
@@ -2230,7 +2230,7 @@ body
 }
 #LayoutGrid2
 {
-   width: 763px;
+   width: 761px;
 }
 #wb_LayoutGrid5
 {
@@ -2451,7 +2451,7 @@ body
 }
 #wb_SlideShow1
 {
-   width: 758px;
+   width: 754px;
    height: 412px;
    visibility: visible;
    display: inline-block;
@@ -2505,7 +2505,7 @@ body
 }
 #wb_SlideShow2
 {
-   width: 758px;
+   width: 754px;
    height: 434px;
    visibility: visible;
    display: inline-block;
@@ -2559,7 +2559,7 @@ body
 }
 #wb_SlideShow3
 {
-   width: 758px;
+   width: 754px;
    height: 402px;
    visibility: visible;
    display: inline-block;
@@ -2586,7 +2586,7 @@ body
    visibility: visible;
    display: inline-block;
    margin: 0;
-   text-align: center;
+   text-align: right;
 }
 #wb_CssMenu1 li
 {
@@ -2656,7 +2656,7 @@ body
 }
 #wb_CssMenu1 li
 {
-   padding: 0px 39px 0px 0px;
+   padding: 0px 0px 0px 39px;
 }
 }
 @media only screen and (min-width: 380px) and (max-width: 767px)
@@ -2969,7 +2969,7 @@ body
 }
 #wb_SlideShow1
 {
-   width: 382px;
+   width: 368px;
    height: 216px;
    visibility: visible;
    display: inline-block;
@@ -3023,7 +3023,7 @@ body
 }
 #wb_SlideShow2
 {
-   width: 382px;
+   width: 368px;
    height: 226px;
    visibility: visible;
    display: inline-block;
@@ -3077,7 +3077,7 @@ body
 }
 #wb_SlideShow3
 {
-   width: 382px;
+   width: 368px;
    height: 212px;
    visibility: visible;
    display: inline-block;
@@ -3104,7 +3104,7 @@ body
    visibility: visible;
    display: inline-block;
    margin: 0;
-   text-align: center;
+   text-align: right;
 }
 #wb_CssMenu1 li
 {
@@ -3174,7 +3174,7 @@ body
 }
 #wb_CssMenu1 li
 {
-   padding: 0px 12px 0px 0px;
+   padding: 0px 0px 0px 12px;
 }
 }
 @media only screen and (max-width: 379px)
@@ -3487,7 +3487,7 @@ body
 }
 #wb_SlideShow1
 {
-   width: 320px;
+   width: 306px;
    height: 184px;
    visibility: visible;
    display: inline-block;
@@ -3548,7 +3548,7 @@ body
 }
 #wb_SlideShow2
 {
-   width: 320px;
+   width: 306px;
    height: 192px;
    visibility: visible;
    display: inline-block;
@@ -3609,7 +3609,7 @@ body
 }
 #wb_SlideShow3
 {
-   width: 320px;
+   width: 306px;
    height: 181px;
    visibility: visible;
    display: inline-block;
@@ -3643,7 +3643,7 @@ body
    visibility: visible;
    display: inline-block;
    margin: 0;
-   text-align: center;
+   text-align: right;
 }
 #wb_CssMenu1 li
 {
@@ -3713,6 +3713,6 @@ body
 }
 #wb_CssMenu1 li
 {
-   padding: 0px 12px 0px 0px;
+   padding: 0px 0px 0px 12px;
 }
 }
