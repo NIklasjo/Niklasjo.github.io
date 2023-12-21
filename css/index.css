@@ -1513,7 +1513,7 @@ body
    background-color: transparent;
    margin: 0;
    animation: animate-fade-in 3000ms linear 300ms 1 normal both;
-   text-align: right;
+   text-align: center;
    z-index: 1111 !important;
 }
 #wb_CssMenu1 ul
@@ -1528,7 +1528,7 @@ body
 {
    float: left;
    margin: 0;
-   padding: 0px 0px 0px 39px;
+   padding: 0px 39px 0px 0px;
 }
 #wb_CssMenu1 a
 {
@@ -1585,7 +1585,7 @@ body
    left: 0;
    top: 0;
    visibility: hidden;
-   width: 135px;
+   width: 140px;
    height: auto;
    border: none;
    background-color: transparent;
@@ -1603,7 +1603,7 @@ body
 }
 #wb_CssMenu1 li li
 {
-   width: 135px;
+   width: 140px;
    padding: 0 0px 0px 0px;
    border: 0px solid #C0C0C0;
    border-width: 0 0px;
@@ -1620,7 +1620,7 @@ body
 {
    float: none;
    margin: 0;
-   width: 122px;
+   width: 127px;
    height: auto;
    white-space: normal;
    padding: 7px 5px 6px 6px;
@@ -2671,7 +2671,7 @@ body
    visibility: visible;
    display: inline-block;
    margin: 0;
-   text-align: right;
+   text-align: center;
 }
 #wb_CssMenu1 li
 {
@@ -2716,11 +2716,11 @@ body
 }
 #wb_CssMenu1 li li
 {
-   width: 135px;
+   width: 140px;
 }
 #wb_CssMenu1 ul ul a, #wb_CssMenu1 ul :hover ul a
 {
-   width: 122px;
+   width: 127px;
    padding: 7px 5px 6px 6px;
    background-color: #303A53;
    border: 0px solid transparent;
@@ -2741,7 +2741,7 @@ body
 }
 #wb_CssMenu1 li
 {
-   padding: 0px 0px 0px 39px;
+   padding: 0px 39px 0px 0px;
 }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px)
@@ -3629,7 +3629,7 @@ body
    visibility: visible;
    display: inline-block;
    margin: 0;
-   text-align: right;
+   text-align: center;
 }
 #wb_CssMenu1 li
 {
@@ -3674,11 +3674,11 @@ body
 }
 #wb_CssMenu1 li li
 {
-   width: 135px;
+   width: 140px;
 }
 #wb_CssMenu1 ul ul a, #wb_CssMenu1 ul :hover ul a
 {
-   width: 122px;
+   width: 127px;
    padding: 7px 5px 6px 6px;
    background-color: #303A53;
    border: 0px solid transparent;
@@ -3699,7 +3699,7 @@ body
 }
 #wb_CssMenu1 li
 {
-   padding: 0px 0px 0px 39px;
+   padding: 0px 39px 0px 0px;
 }
 }
 @media only screen and (min-width: 380px) and (max-width: 767px)
