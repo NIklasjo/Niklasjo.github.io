@@ -139,18 +139,9 @@ h2, .h2
 @media only screen and (max-width: 768px)
 {
 }
-@media only screen and (max-width: 480px)
+@media only screen and (max-width: 380px) and (orientation: portrait)
 {
 }
-@media only screen and (max-width: 400px)
-{
-}
-@media only screen and (max-width: 380px)
-{
-}
-@media only screen and (max-width: 370px)
-{
-}
-@media only screen and (max-width: 320px)
+@media only screen and (max-width: 320px) and (orientation: portrait)
 {
 }
