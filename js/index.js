@@ -1,6 +1,23 @@
    
    document.addEventListener('DOMContentLoaded', function(event)
    {
+      var elementCarousel2 = document.querySelector('#Carousel2');
+      elementCarousel2.addEventListener('slid.bs.carousel', function(e)
+      {
+         switch(e.to)
+         {
+            case 0:
+               AnimateCss('welcome-button1', 'slide-down-in', 2000, 1000);
+               break;
+            case 1:
+               AnimateCss('welcome-button2', 'slide-down-in', 2000, 1000);
+               break;
+            case 2:
+               AnimateCss('welcome-button3', 'slide-down-in', 2000, 1000);
+               break;
+         }
+      });
+      var Carousel2 = new bootstrap.Carousel('#Carousel2', {interval: 3000, pause: false});
       var elementwelcome_carousel = document.querySelector('#welcome-carousel');
       elementwelcome_carousel.addEventListener('slid.bs.carousel', function(e)
       {
@@ -29,6 +46,17 @@
          }
       });
       var Carousel1 = new bootstrap.Carousel('#Carousel1', {interval: 3000, pause: false});
+      var elementCarousel3 = document.querySelector('#Carousel3');
+      elementCarousel3.addEventListener('slid.bs.carousel', function(e)
+      {
+         switch(e.to)
+         {
+            case 0:
+               AnimateCss('welcome-button1', 'slide-down-in', 2000, 1000);
+               break;
+         }
+      });
+      var Carousel3 = new bootstrap.Carousel('#Carousel3', {interval: 3000, pause: false});
    });
    
    $(document).ready(function()
