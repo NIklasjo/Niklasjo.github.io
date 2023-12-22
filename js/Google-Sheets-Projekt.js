@@ -1,6 +1,17 @@
    
    document.addEventListener('DOMContentLoaded', function(event)
    {
+      var elementCarousel1 = document.querySelector('#Carousel1');
+      elementCarousel1.addEventListener('slid.bs.carousel', function(e)
+      {
+         switch(e.to)
+         {
+            case 0:
+               AnimateCss('welcome-button1', 'slide-down-in', 2000, 1000);
+               break;
+         }
+      });
+      var Carousel1 = new bootstrap.Carousel('#Carousel1', {interval: 3000, pause: false});
       var SlideShow1 = new bootstrap.Carousel("#SlideShow1", {interval:3000, ride: true});
       var SlideShow2 = new bootstrap.Carousel("#SlideShow2", {interval:3000, ride: true});
       var SlideShow3 = new bootstrap.Carousel("#SlideShow3", {interval:3000, ride: true});
@@ -33,11 +44,6 @@
       $(window).scroll(function(event)
       {
          onScrollLayoutGrid2();
-      });
-      $("a[href*='#FlexContainer3']").click(function(event)
-      {
-         event.preventDefault();
-         $('html, body').stop().animate({ scrollTop: $('#FlexContainer3').offset().top }, 600, 'easeOutQuart');
       });
    });
    

@@ -11,34 +11,15 @@ Företagsöversikt
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
 <link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
 <link href="css/KNS_Consulting_AB.css" rel="stylesheet">
 <link href="css/index.css" rel="stylesheet">
-<link href="css/jquery.cookiebar.css" rel="stylesheet">
 <script src="js/jquery-1.12.4.min.js"></script>
-<script src="js/jquery.cookiebar.js"></script>
 <script src="js/jquery.ui.effect.min.js"></script>
-<script src="js/skrollr.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/wwb18.min.js"></script>
 <script src="js/index.js"></script>
-<script>
-$(document).ready(function(){
-  $.cookieBar();
-});
-</script>
-<script>
-if(jQuery.cookieBar('cookies')){
-  (function(){
-    var gtagScript = document.createElement('script');
-    gtagScript.async = true;
-    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-VKHVM5ZNQR';
-    document.head.appendChild(gtagScript);
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-VKHVM5ZNQR');
-  })();
-}
-</script>
 </head>
 <body>
    <div id="container">
@@ -46,12 +27,12 @@ if(jQuery.cookieBar('cookies')){
    <div id="wb_Header">
       <div id="Header">
          <div class="col-1">
-            <div id="wb_Image1">
+            <div id="wb_Image1" style="display:inline-block;width:286px;height:52px;z-index:0;">
                <a href="./index.html"><img src="images/logo_KNSC.png" id="Image1" alt="Logo med text till hemsida KNS Consulting AB" title="Logo" width="286" height="28"></a>
             </div>
          </div>
          <div class="col-2">
-            <div id="wb_CssMenu1">
+            <div id="wb_CssMenu1" style="display:inline-block;width:475px;height:28px;z-index:1;">
                <ul id="CssMenu1" role="menubar" class="nav" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
                   <li role="menuitem" class="nav-item firstmain" itemprop="name"><a class="nav-link active" href="./index.html" target="_self" itemprop="url">Hem</a>
                   </li>
@@ -82,24 +63,54 @@ if(jQuery.cookieBar('cookies')){
          </div>
       </div>
    </div>
-   <div id="wb_FlexContainer_bakgrundsbild" data-top="transform:;transform:;">
-      <div id="FlexContainer_bakgrundsbild">
+   <div id="wb_welcome-carousel">
+      <div id="welcome-carousel" class="carousel slide" data-bs-ride="carousel">
+         <ol class="carousel-indicators">
+            <li data-bs-target="#welcome-carousel" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#welcome-carousel" data-bs-slide-to="1"></li>
+            <li data-bs-target="#welcome-carousel" data-bs-slide-to="2"></li>
+         </ol>
+         <div class="carousel-inner">
+            <div class="carousel-item frame-1 active">
+               <div class="carousel-item-inner">
+               </div>
+            </div>
+            <div class="carousel-item frame-2">
+               <div class="carousel-item-inner">
+               </div>
+            </div>
+            <div class="carousel-item frame-3">
+               <div class="carousel-item-inner">
+               </div>
+            </div>
+         </div>
+         <a class="carousel-item-start carousel-control" href="#welcome-carousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span>
+         </a>
+         <a class="carousel-item-end carousel-control" href="#welcome-carousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span>
+         </a>
       </div>
    </div>
    <div id="wb_LayoutGrid5">
       <div id="LayoutGrid5">
          <div class="col-1">
+            <div id="wb_Breadcrumb1" style="display:inline-block;width:448px;height:28px;z-index:2;vertical-align:top;">
+               <ul id="Breadcrumb1" itemscope="" itemtype="https://schema.org/BreadcrumbList">
+                  <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a href="#LayoutGrid1" title="index" itemprop="item"><span itemprop="name">index</span></a><meta itemprop="position" content="1"/></li>
+               </ul>
+            </div>
          </div>
       </div>
    </div>
-   <div id="wb_LayoutGrid3">
-      <div id="LayoutGrid3">
+   <div id="wb_LayoutGrid1">
+      <div id="LayoutGrid1">
          <div class="row">
             <div class="col-1">
-               <picture id="wb_FontAwesomeIcon1">
+               <picture id="wb_FontAwesomeIcon1" style="display:block;width:100%;height:73px;z-index:3">
                   <img src="images/Sheets.png" loading="lazy" id="FontAwesomeIcon1" alt="Google sheets icon" title="Google Sheets" width="52" height="71">
                </picture>
-               <div id="wb_Card1" class="card">
+               <div id="wb_Card1" style="display:flex;width:100%;z-index:4;" class="card">
                   <div id="Card1-card-header"></div>
                   <div id="Card1-card-body">
                      <div id="Card1-card-item1">Tjänster Sheets/Excel</div>
@@ -110,10 +121,10 @@ if(jQuery.cookieBar('cookies')){
                </div>
             </div>
             <div class="col-2">
-               <div id="wb_FontAwesomeIcon2">
+               <div id="wb_FontAwesomeIcon2" style="display:inline-block;width:120px;height:73px;z-index:5;">
                   <img src="images/laptop.png" id="FontAwesomeIcon2" alt="Laptop with analytics on the screen" title="Laptop" width="120" height="88">
                </div>
-               <div id="wb_Card2" class="card">
+               <div id="wb_Card2" style="display:flex;width:100%;z-index:6;" class="card">
                   <div id="Card2-card-header"></div>
                   <div id="Card2-card-body">
                      <div id="Card2-card-item1">Projekt Google Sheets</div>
@@ -124,10 +135,10 @@ if(jQuery.cookieBar('cookies')){
                </div>
             </div>
             <div class="col-3">
-               <div id="wb_FontAwesomeIcon3">
+               <div id="wb_FontAwesomeIcon3" style="display:inline-block;width:53px;height:54px;text-align:center;z-index:7;">
                   <div id="FontAwesomeIcon3"><i class="fa fa-building-o"></i></div>
                </div>
-               <div id="wb_Card3" class="card">
+               <div id="wb_Card3" style="display:flex;width:100%;z-index:8;" class="card">
                   <div id="Card3-card-header"></div>
                   <div id="Card3-card-body">
                      <div id="Card3-card-item1">Referensprojekt bygg</div>
@@ -138,10 +149,10 @@ if(jQuery.cookieBar('cookies')){
                </div>
             </div>
             <div class="col-4">
-               <div id="wb_FontAwesomeIcon4">
+               <div id="wb_FontAwesomeIcon4" style="display:inline-block;width:53px;height:54px;text-align:center;z-index:9;">
                   <div id="FontAwesomeIcon4"><i class="fa fa-calendar-check-o"></i></div>
                </div>
-               <div id="wb_Card4" class="card">
+               <div id="wb_Card4" style="display:flex;width:100%;z-index:10;" class="card">
                   <div id="Card4-card-header"></div>
                   <div id="Card4-card-body">
                      <div id="Card4-card-item1">Våra tjänster inom bygg</div>
@@ -154,42 +165,50 @@ if(jQuery.cookieBar('cookies')){
          </div>
       </div>
    </div>
-   <div id="wb_FlexContainer3">
-      <div id="FlexContainer3">
+   <div id="wb_Carousel1">
+      <div id="Carousel1" class="carousel slide" data-bs-ride="carousel">
+         <ol class="carousel-indicators">
+            <li data-bs-target="#Carousel1" data-bs-slide-to="0" class="active"></li>
+         </ol>
+         <div class="carousel-inner">
+            <div class="carousel-item frame-1 active">
+               <div class="carousel-item-inner">
+               </div>
+            </div>
+         </div>
       </div>
    </div>
-   <div id="wb_LayoutGrid1">
-      <div id="LayoutGrid1">
+   <div id="wb_LayoutGrid2">
+      <div id="LayoutGrid2">
          <div class="row">
             <div class="col-1">
-               <div id="wb_Card5" class="card">
-                  <div id="Card5-card-body">
-                     <div id="Card5-card-item0">KNS Consulting AB</div>
-                     <div id="Card5-card-item1">Specialiserad på projektledning för elinstallationer och IT-tjänster med fokus på Google Sheets och Excel. Med gedigen erfarenhet i branschen erbjuder vi ett brett utbud av tjänster, inklusive projekt- och byggledning, beställarstöd, projektadministration samt skräddarsydda IT-lösningar för effektiv datahantering och analys. Verksamheten inriktar sig främst på el- och byggbranschen i Mälardalen, men erbjuder också IT-stöd som förbättrar kundernas produktivitet och processhantering. KNS Consulting är synonymt med professionalism och kvalitet, och levererar skräddarsydda, pålitliga lösningar.</div>
-                     <div id="Card5-card-item2">Mobil: 072-445 68 78</div>
-                     <div id="Card5-card-item3">Email: info@knsc.se</div>
-                     <div id="Card5-card-item4"><a href="mailto:info@knsc.se" title="Email"><i class="fa fa-envelope"></i></a></div>
-                     <div id="Card5-card-item5"><i class="fa fa-linkedin"></i></div>
-                  </div>
+               <div id="wb_Heading10" style="display:inline-block;width:100%;z-index:11;">
+                  <h1 id="Heading10">KNS Consulting AB</h1>
+               </div>
+               <div id="wb_Text12">
+                  <span style="color:#4F4F4F;">Specialiserad på projektledning för elinstallationer och IT-tjänster med fokus på Google Sheets och Excel. Med gedigen erfarenhet i branschen erbjuder vi ett brett utbud av tjänster, inklusive projekt- och byggledning, beställarstöd, projektadministration samt skräddarsydda IT-lösningar för effektiv datahantering och analys. Verksamheten inriktar sig främst på el- och byggbranschen i Mälardalen, men erbjuder också IT-stöd som förbättrar kundernas produktivitet och processhantering. KNS Consulting är synonymt med professionalism och kvalitet, och levererar skräddarsydda, pålitliga lösningar.</span>
+               </div>
+               <div id="wb_Text1">
+                  <span style="color:#4F4F4F;">Mobil: 027-334 68 78</span>
+               </div>
+               <div id="wb_Text2">
+                  <span style="color:#4F4F4F;">Email: info@knsc.se</span>
+               </div>
+               <div id="wb_Icon1" style="display:inline-block;width:46px;height:33px;text-align:center;z-index:15;">
+                  <div id="Icon1"><i class="fa fa-envelope"></i></div>
+               </div>
+               <div id="wb_Icon2" style="display:inline-block;width:46px;height:33px;text-align:center;z-index:16;">
+                  <div id="Icon2"><i class="fa fa-linkedin-square"></i></div>
                </div>
             </div>
             <div class="col-2">
-               <div id="wb_Heading5">
-                  <h3 id="Heading5">Skicka ett meddelande</h3>
+               <div id="wb_Text4">
+&nbsp;
                </div>
-               <div id="wb_Editbox3">
-                  <input type="text" id="Editbox3" name="name" value="" spellcheck="false" placeholder="Namn">
-                  <label id="Editbox3-label" for="Editbox3">Namn</label>
-               </div>
-               <div id="wb_email">
-                  <input type="text" id="email" name="email" value="" spellcheck="false" placeholder="Email">
-                  <label id="email-label" for="email">Email</label>
-               </div>
-               <div id="wb_message">
-                  <textarea name="message" id="message" rows="6" cols="37" spellcheck="false" placeholder="Meddelande"></textarea>
-                  <label id="message-label" for="message">Meddelande</label>
-               </div>
-               <input type="submit" id="Send" name="submit" value="Send">
+               <input type="text" id="Editbox3" style="display:block;width:100%;height:42px;z-index:18;" name="name" value="" spellcheck="false" placeholder="Namn">
+               <input type="text" id="Editbox4" style="display:block;width:100%;height:42px;z-index:19;" name="email" value="" spellcheck="false" placeholder="Email">
+               <textarea name="message" id="TextArea2" style="display:block;width:100%;;height:108px;z-index:20;" rows="4" cols="120" autocomplete="off" spellcheck="false" placeholder="Meddelande"></textarea>
+               <input type="submit" id="Button1" name="" value="Skicka" style="display:inline-block;width:90px;height:37px;z-index:21;">
             </div>
          </div>
       </div>
@@ -197,18 +216,9 @@ if(jQuery.cookieBar('cookies')){
    <div id="wb_footer">
       <div id="footer">
          <div class="col-1">
-            <div id="wb_Breadcrumb1">
-               <ul id="Breadcrumb1" itemscope="" itemtype="https://schema.org/BreadcrumbList">
-                  <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a href="#LayoutGrid1" title="index" itemprop="item"><span itemprop="name">index</span></a><meta itemprop="position" content="1"/></li>
-               </ul>
-            </div>
-         </div>
-         <div class="col-2">
             <div id="wb_footerText">
                <span style="color:#787878;">Copyright © 2024 KNS Consulting AB.&nbsp; All Rights Reserved</span>
             </div>
-         </div>
-         <div class="col-3">
          </div>
       </div>
    </div>

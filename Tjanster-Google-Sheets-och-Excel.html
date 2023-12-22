@@ -11,11 +11,13 @@ Affärseffektivisering
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
 <link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
 <link href="css/KNS_Consulting_AB.css" rel="stylesheet">
 <link href="css/Tjanster-Google-Sheets-och-Excel.css" rel="stylesheet">
 <script src="js/jquery-1.12.4.min.js"></script>
 <script src="js/jquery.ui.effect.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="js/wwb18.min.js"></script>
 <script src="js/Tjanster-Google-Sheets-och-Excel.js"></script>
 </head>
@@ -158,16 +160,6 @@ Mitt mål är alltid att leverera lösningar som är inte bara funktionella utan
    <div id="wb_LayoutGrid5">
       <div id="LayoutGrid5">
          <div class="col-1">
-         </div>
-      </div>
-   </div>
-   <div id="wb_FlexContainer3">
-      <div id="FlexContainer3">
-      </div>
-   </div>
-   <div id="wb_footer">
-      <div id="footer">
-         <div class="col-1">
             <div id="wb_Breadcrumb2">
                <ul id="Breadcrumb2" itemscope="" itemtype="https://schema.org/BreadcrumbList">
                   <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a href="#LayoutGrid1" title="index" itemprop="item"><span itemprop="name">index</span></a><meta itemprop="position" content="1"/></li>
@@ -175,12 +167,27 @@ Mitt mål är alltid att leverera lösningar som är inte bara funktionella utan
                </ul>
             </div>
          </div>
-         <div class="col-2">
-            <div id="wb_footerText">
-               <span style="color:#787878;">Copyright © 2024 KNS Consulting AB.&nbsp; All Rights Reserved</span>
+      </div>
+   </div>
+   <div id="wb_Carousel1">
+      <div id="Carousel1" class="carousel slide" data-bs-ride="carousel">
+         <ol class="carousel-indicators">
+            <li data-bs-target="#Carousel1" data-bs-slide-to="0" class="active"></li>
+         </ol>
+         <div class="carousel-inner">
+            <div class="carousel-item frame-1 active">
+               <div class="carousel-item-inner">
+               </div>
             </div>
          </div>
-         <div class="col-3">
+      </div>
+   </div>
+   <div id="wb_LayoutGrid1">
+      <div id="LayoutGrid1">
+         <div class="col-1">
+            <div id="wb_Text1">
+               <span style="color:#787878;">Copyright © 2024 KNS Consulting AB.&nbsp; All Rights Reserved</span>
+            </div>
          </div>
       </div>
    </div>
