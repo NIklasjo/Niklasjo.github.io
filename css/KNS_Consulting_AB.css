@@ -130,13 +130,25 @@ h2, .h2
    border: 1px solid #FFFFFF;
    --border-color: #FFFFFF;
 }
+@media only screen and (max-width: 1920px)
+{
+}
 @media only screen and (max-width: 1024px)
 {
 }
 @media only screen and (max-width: 768px)
 {
 }
+@media only screen and (max-width: 480px)
+{
+}
+@media only screen and (max-width: 400px)
+{
+}
 @media only screen and (max-width: 380px)
+{
+}
+@media only screen and (max-width: 370px)
 {
 }
 @media only screen and (max-width: 320px)
