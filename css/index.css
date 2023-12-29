@@ -826,8 +826,8 @@ body
    border: 0px solid #245580;
    border-radius: 0px;
    text-align: center;
-   margin: 0;
-   padding: 20px 0 0 0;
+   margin: 35px 0 0 0 ;
+   padding: 0;
    vertical-align: top;
    display:inline-block;
    position:relative;
@@ -853,7 +853,7 @@ body
 #wb_FontAwesomeIcon1
 {
    height: 100%;
-   margin: 20px 0 0 0 ;
+   margin: 35px 0 0 0 ;
    vertical-align: top;
 }
 #FontAwesomeIcon1
@@ -871,7 +871,7 @@ body
 #wb_FontAwesomeIcon2
 {
    height: 100%;
-   margin: 20px 0 0 0 ;
+   margin: 35px 0 0 0 ;
    vertical-align: top;
 }
 #FontAwesomeIcon2
@@ -892,8 +892,8 @@ body
    border: 0px solid #245580;
    border-radius: 0px;
    text-align: center;
-   margin: 0;
-   padding: 20px 0 0 0;
+   margin: 35px 0 0 0 ;
+   padding: 0;
    vertical-align: top;
    display:inline-block;
    position:relative;
@@ -1592,7 +1592,7 @@ body
 }
 #wb_Icon1:hover #Icon1 i
 {
-   color: #1ABC9C;
+   color: #0275D8;
 }
 #wb_Text1 
 {
@@ -1681,7 +1681,7 @@ body
 }
 #wb_Icon2:hover #Icon2 i
 {
-   color: #1ABC9C;
+   color: #0275D8;
 }
 #Editbox3
 {
@@ -2215,7 +2215,7 @@ body
    height: 54px;
    visibility: visible;
    display: inline-block;
-   margin: 20px 0 0 0 ;
+   margin: 30px 0 0 0 ;
    padding: 0;
 }
 #FontAwesomeIcon4
@@ -2232,30 +2232,30 @@ body
 #wb_FontAwesomeIcon1
 {
    width: 52px;
-   height: 53px;
+   height: 38px;
    visibility: visible;
    display: inline-block;
-   margin: 20px 0 0 0 ;
+   margin: 30px 0 0 0 ;
    padding: 0;
 }
 #FontAwesomeIcon1
 {
    width: 52px;
-   height: 53px;
+   height: 38px;
 }
 #wb_FontAwesomeIcon2
 {
    width: 120px;
-   height: 53px;
+   height: 38px;
    visibility: visible;
    display: inline-block;
-   margin: 20px 0 0 0 ;
+   margin: 30px 0 0 0 ;
    padding: 0;
 }
 #FontAwesomeIcon2
 {
    width: 120px;
-   height: 53px;
+   height: 38px;
 }
 #wb_FontAwesomeIcon3
 {
@@ -2263,7 +2263,7 @@ body
    height: 54px;
    visibility: visible;
    display: inline-block;
-   margin: 20px 0 0 0 ;
+   margin: 30px 0 0 0 ;
    padding: 0;
 }
 #FontAwesomeIcon3
@@ -2759,7 +2759,6 @@ body
    display: inline-block;
    margin: 0 0 20px 0 ;
    padding: 5px 0 0 0;
-   color: #000000;
 }
 #Icon1
 {
@@ -2771,11 +2770,6 @@ body
    line-height: 33px;
    font-size: 33px;
    width: 32px;
-   color: #000000;
-}
-#Icon1:hover i
-{
-   color: #1ABC9C;
 }
 #wb_Text1
 {
@@ -2815,7 +2809,6 @@ body
    display: inline-block;
    margin: 0 0 20px 0 ;
    padding: 5px 0 0 0;
-   color: #000000;
 }
 #Icon2
 {
@@ -2827,11 +2820,6 @@ body
    line-height: 33px;
    font-size: 33px;
    width: 32px;
-   color: #000000;
-}
-#Icon2:hover i
-{
-   color: #1ABC9C;
 }
 #Editbox3
 {
@@ -2988,16 +2976,16 @@ body
 }
 #welcome-carousel_back
 {
-   top: 46%;
+   top: 47%;
 }
 #welcome-carousel_next
 {
-   top: 46%;
+   top: 47%;
 }
 #wb_welcome-carousel
 {
    margin: 0;
-   height: 532px;
+   height: 725px;
 }
 #welcome-carousel .carousel-item-inner
 {
@@ -3169,70 +3157,70 @@ body
 #wb_FontAwesomeIcon4
 {
    width: 53px;
-   height: 54px;
+   height: 39px;
    visibility: visible;
    display: inline-block;
-   margin: 0;
-   padding: 20px 0 0 0;
+   margin: 35px 0 0 0 ;
+   padding: 0;
 }
 #FontAwesomeIcon4
 {
    width: 53px;
-   height: 54px;
+   height: 39px;
 }
 #FontAwesomeIcon4 i
 {
-   line-height: 54px;
-   font-size: 53px;
-   width: 52px;
+   line-height: 39px;
+   font-size: 39px;
+   width: 38px;
 }
 #wb_FontAwesomeIcon1
 {
    width: 52px;
-   height: 53px;
+   height: 38px;
    visibility: visible;
    display: inline-block;
-   margin: 20px 0 0 0 ;
+   margin: 35px 0 0 0 ;
    padding: 0;
 }
 #FontAwesomeIcon1
 {
    width: 52px;
-   height: 53px;
+   height: 38px;
 }
 #wb_FontAwesomeIcon2
 {
    width: 120px;
-   height: 53px;
+   height: 38px;
    visibility: visible;
    display: inline-block;
-   margin: 20px 0 0 0 ;
+   margin: 35px 0 0 0 ;
    padding: 0;
 }
 #FontAwesomeIcon2
 {
    width: 120px;
-   height: 53px;
+   height: 38px;
 }
 #wb_FontAwesomeIcon3
 {
    width: 53px;
-   height: 54px;
+   height: 39px;
    visibility: visible;
    display: inline-block;
-   margin: 0;
-   padding: 20px 0 0 0;
+   margin: 35px 0 0 0 ;
+   padding: 0;
 }
 #FontAwesomeIcon3
 {
    width: 53px;
-   height: 54px;
+   height: 39px;
 }
 #FontAwesomeIcon3 i
 {
-   line-height: 54px;
-   font-size: 53px;
-   width: 52px;
+   line-height: 39px;
+   font-size: 39px;
+   width: 38px;
 }
 #wb_Breadcrumb1
 {
@@ -3716,7 +3704,6 @@ body
    display: inline-block;
    margin: 0 0 20px 0 ;
    padding: 5px 0 0 0;
-   color: #000000;
 }
 #Icon1
 {
@@ -3728,11 +3715,6 @@ body
    line-height: 33px;
    font-size: 33px;
    width: 32px;
-   color: #000000;
-}
-#Icon1:hover i
-{
-   color: #1ABC9C;
 }
 #wb_Text1
 {
@@ -3772,7 +3754,6 @@ body
    display: inline-block;
    margin: 0 0 20px 0 ;
    padding: 5px 0 0 0;
-   color: #000000;
 }
 #Icon2
 {
@@ -3784,11 +3765,6 @@ body
    line-height: 33px;
    font-size: 33px;
    width: 32px;
-   color: #000000;
-}
-#Icon2:hover i
-{
-   color: #1ABC9C;
 }
 #Editbox3
 {
@@ -3945,11 +3921,11 @@ body
 }
 #welcome-carousel_back
 {
-   top: 44%;
+   top: 46%;
 }
 #welcome-carousel_next
 {
-   top: 44%;
+   top: 46%;
 }
 #wb_welcome-carousel
 {
@@ -3957,7 +3933,7 @@ body
 }
 #welcome-carousel .carousel-item-inner
 {
-   min-height: 216px;
+   min-height: 418px;
    padding: 0 0 50px 0;
 }
 #wb_LayoutGrid5
@@ -4126,70 +4102,70 @@ body
 #wb_FontAwesomeIcon4
 {
    width: 53px;
-   height: 54px;
+   height: 39px;
    visibility: visible;
    display: inline-block;
-   margin: 0;
-   padding: 20px 0 0 0;
+   margin: 35px 0 0 0 ;
+   padding: 0;
 }
 #FontAwesomeIcon4
 {
    width: 53px;
-   height: 54px;
+   height: 39px;
 }
 #FontAwesomeIcon4 i
 {
-   line-height: 54px;
-   font-size: 53px;
-   width: 52px;
+   line-height: 39px;
+   font-size: 39px;
+   width: 38px;
 }
 #wb_FontAwesomeIcon1
 {
    width: 52px;
-   height: 53px;
+   height: 38px;
    visibility: visible;
    display: inline-block;
-   margin: 20px 0 0 0 ;
+   margin: 35px 0 0 0 ;
    padding: 0;
 }
 #FontAwesomeIcon1
 {
    width: 52px;
-   height: 53px;
+   height: 38px;
 }
 #wb_FontAwesomeIcon2
 {
    width: 120px;
-   height: 53px;
+   height: 38px;
    visibility: visible;
    display: inline-block;
-   margin: 20px 0 0 0 ;
+   margin: 35px 0 0 0 ;
    padding: 0;
 }
 #FontAwesomeIcon2
 {
    width: 120px;
-   height: 53px;
+   height: 38px;
 }
 #wb_FontAwesomeIcon3
 {
    width: 53px;
-   height: 54px;
+   height: 39px;
    visibility: visible;
    display: inline-block;
-   margin: 0;
-   padding: 20px 0 0 0;
+   margin: 35px 0 0 0 ;
+   padding: 0;
 }
 #FontAwesomeIcon3
 {
    width: 53px;
-   height: 54px;
+   height: 39px;
 }
 #FontAwesomeIcon3 i
 {
-   line-height: 54px;
-   font-size: 53px;
-   width: 52px;
+   line-height: 39px;
+   font-size: 39px;
+   width: 38px;
 }
 #wb_Breadcrumb1
 {
@@ -4673,7 +4649,6 @@ body
    display: inline-block;
    margin: 0 0 20px 0 ;
    padding: 5px 0 0 0;
-   color: #000000;
 }
 #Icon1
 {
@@ -4685,11 +4660,6 @@ body
    line-height: 33px;
    font-size: 33px;
    width: 32px;
-   color: #000000;
-}
-#Icon1:hover i
-{
-   color: #0275D8;
 }
 #wb_Text1
 {
@@ -4729,7 +4699,6 @@ body
    display: inline-block;
    margin: 0 0 20px 0 ;
    padding: 5px 0 0 0;
-   color: #000000;
 }
 #Icon2
 {
@@ -4741,11 +4710,6 @@ body
    line-height: 33px;
    font-size: 33px;
    width: 32px;
-   color: #000000;
-}
-#Icon2:hover i
-{
-   color: #0275D8;
 }
 #Editbox3
 {
