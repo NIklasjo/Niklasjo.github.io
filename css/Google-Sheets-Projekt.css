@@ -1709,35 +1709,21 @@ body
    width: 100%;
    z-index: 2;
 }
-@media only screen and (max-width: 1920px)
-{
-div#container
-{
-   width: 1920px;
-}
-}
-@media only screen and (max-width: 1024px)
+@media only screen and (min-width: 1024px) and (max-width: 1913px)
 {
 div#container
 {
    width: 1024px;
 }
 }
-@media only screen and (max-width: 768px)
+@media only screen and (min-width: 400px) and (max-width: 1023px)
 {
 div#container
 {
-   width: 768px;
+   width: 400px;
 }
 }
-@media only screen and (max-width: 380px) and (orientation: portrait)
-{
-div#container
-{
-   width: 380px;
-}
-}
-@media only screen and (max-width: 320px) and (orientation: portrait)
+@media only screen and (max-width: 399px)
 {
 div#container
 {
