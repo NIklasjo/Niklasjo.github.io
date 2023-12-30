@@ -347,7 +347,7 @@ body
 #Article2 .blogitem
 {
    margin-bottom: 6px;
-   padding: 0px;
+   padding: 10px;
    text-align: left;
 }
 #Article2 .blogdate
@@ -1000,10 +1000,10 @@ body
 }
 #wb_Heading1
 {
-   width: 100%;
+   width: calc(100% - 20px);
    visibility: visible;
    display: block;
-   margin: 0;
+   margin: 0 10px 0 10px;
    padding: 0;
    font-size: 48px;
    font-family: Arial;
@@ -1310,10 +1310,10 @@ body
 }
 #wb_Heading1
 {
-   width: 100%;
+   width: calc(100% - 20px);
    visibility: visible;
    display: block;
-   margin: 0;
+   margin: 0 10px 0 10px;
    padding: 0;
    font-size: 27px;
    font-family: Arial;
@@ -1640,10 +1640,10 @@ body
 }
 #wb_Heading1
 {
-   width: 100%;
+   width: calc(100% - 20px);
    visibility: visible;
    display: block;
-   margin: 0;
+   margin: 0 10px 0 10px;
    padding: 0;
    font-size: 27px;
    font-family: Arial;
