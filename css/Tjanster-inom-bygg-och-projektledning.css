@@ -500,7 +500,7 @@ body
 #Breadcrumb2
 {
    list-style: none;
-   padding: 8px 15px 8px 15px;
+   padding: 0;
    background-color: #303A53;
    background-image: none;
    border: 1px solid transparent;
@@ -1514,7 +1514,7 @@ body
 }
 #Breadcrumb2
 {
-   padding: 8px 15px 8px 15px;
+   padding: 0;
    text-align: left;
 }
 #Breadcrumb2 > li + li:before
@@ -1867,12 +1867,12 @@ body
 }
 #Breadcrumb2
 {
-   padding: 8px 15px 8px 15px;
+   padding: 0;
    text-align: left;
 }
 #Breadcrumb2 > li + li:before
 {
-   padding: 0 5px;
+   padding: 0 0px;
 }
 #wb_Carousel1
 {
