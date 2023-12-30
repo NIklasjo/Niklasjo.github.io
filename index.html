@@ -221,14 +221,17 @@ if(jQuery.cookieBar('cookies')){
                   <a href="https://www.linkedin.com/in/niklas-johansson-98bab72a3/"><div id="Icon2"><i class="fa fa-linkedin-square"></i></div></a>
                </div>
             </div>
-            <div class="col-2">
-               <div id="wb_Text4">
-&nbsp;
-               </div>
-               <input type="text" id="Editbox3" name="name" value="" tabindex="Namn" spellcheck="false" title="Namn" placeholder="Namn">
-               <input type="text" id="Editbox4" name="email" value="" tabindex="Email" spellcheck="false" title="Email" placeholder="Email">
-               <textarea name="message" id="TextArea2" rows="4" cols="120" tabindex="Meddelande" autocomplete="off" spellcheck="false" title="Meddelande" placeholder="Meddelande"></textarea>
-               <input type="submit" id="Button1" name="" value="Skicka">
+              <div class="col-2">
+               <div id="wb_Text4">&nbsp;</div>
+               <!-- Start of Formspree form -->
+               <form action="https://formspree.io/f/meqyjqjb" method="POST">
+                  <input type="text" id="Editbox3" name="name" value="" placeholder="Namn" required>
+                  <input type="email" id="Editbox4" name="email" value="" placeholder="Email" required>
+                  <textarea name="message" id="TextArea2" rows="4" cols="120" placeholder="Meddelande" required></textarea>
+                  <input type="submit" id="Button1" name="submit" value="Skicka">
+               </form>
+               <!-- End of Formspree form -->
+              </div>
             </div>
          </div>
       </div>
