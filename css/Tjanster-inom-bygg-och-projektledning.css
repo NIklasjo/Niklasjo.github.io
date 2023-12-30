@@ -106,7 +106,7 @@ body
    display: table;
    text-align: center;
    width: 100%;
-   background-color: #F5F5F5;
+   background-color: rgba(245,245,245,0.04);
    background-image: none;
    border: 0px solid #CCCCCC;
    border-radius: 0px;
@@ -219,9 +219,9 @@ body
    max-width: 100%;
    display: flex;
    flex-wrap: wrap;
-   align-content: center;
+   align-content: flex-start;
    align-self: stretch;
-   align-items: center;
+   align-items: flex-start;
    justify-content: center;
    text-align: center;
 }
@@ -232,153 +232,6 @@ body
    flex-basis: 100% !important;
    max-width: 100% !important;
 }
-}
-#wb_Carousel1
-{
-   background-color: transparent;
-   background-image: none;
-   border-radius: 0px;
-   margin: 0;
-}
-#wb_Carousel1
-{
-   height: 33vh;
-}
-#Carousel1
-{
-   position: relative;
-   margin: 0;
-   line-height: 1;
-   height: 100%;
-   box-sizing: border-box;
-}
-#Carousel1 .carousel-inner
-{
-   overflow: hidden;
-   width: 100%;
-   height: 100%;
-   position: relative;
-   perspective: 1200px;
-}
-.carousel.pointer-event
-{
-   -ms-touch-action: pan-y;
-   touch-action: pan-y;
-}
-#Carousel1 .carousel-inner::after
-{
-   display: block;
-   clear: both;
-   content: "";
-}
-#Carousel1 .carousel-inner > .carousel-item
-{
-   display: none;
-   position: relative;
-   float: left;
-   width: 100%;
-   margin-right: -100%;
-   -webkit-backface-visibility: hidden;
-   backface-visibility: hidden;
-   transform: translate3d(0, 0, 0);
-   transform-style: preserve-3d;
-   transition: opacity 500ms ease-in-out;
-   height: 100%;
-   text-align: center;
-}
-#Carousel1 .carousel-item-inner
-{
-   padding: 0 0 50px 0;
-   display: flex;
-   align-items: center;
-   flex-direction: column;
-   justify-content: flex-end;
-   height: 100%;
-   box-sizing: border-box;
-}
-#Carousel1 .carousel-inner > .carousel-item > img, #Carousel1 .carousel-inner > .carousel-item > a > img
-{
-   display: block;
-   line-height: 1;
-}
-#Carousel1 .carousel-inner > .active, #Carousel1 .carousel-inner > .carousel-item-next, #Carousel1 .carousel-inner > .carousel-item-prev
-{
-   display: block;
-}
-#Carousel1 .carousel-inner > .active
-{
-   animation: Carousel1-animation-show 500ms ease 0ms both;
-}
-#Carousel1 .carousel-inner > .carousel-item-next, #Carousel1 .carousel-inner > .carousel-item-prev
-{
-   position: absolute;
-   top: 0;
-   width: 100%;
-}
-#Carousel1 .carousel-inner > .carousel-item-next.carousel-item-start, #Carousel1 .carousel-inner > .carousel-item-prev.carousel-item-end
-{
-   animation: Carousel1-animation-show 500ms ease 0ms both;
-}
-#Carousel1 .carousel-inner > .active.carousel-item-start, #Carousel1 .carousel-inner > .active.carousel-item-end
-{
-   animation: Carousel1-animation-hide 500ms ease both;
-}
-#Carousel1 .carousel-indicators
-{
-   list-style: none;
-   bottom: 0;
-   padding: 0;
-   margin: 0;
-   position: absolute;
-   margin-left: -21px;
-   left: 50%;
-   vertical-align: middle;
-   z-index: 999;
-}
-#Carousel1 .carousel-indicators li
-{
-   display: block;
-   float: left;
-   margin: 16px 16px 16px 16px;
-   width: 9px;
-   height: 9px;
-   cursor: pointer;
-   text-indent: -999px;
-   border-radius: 50%;
-   background-color: transparent;
-   border: 1px solid #FFFFFF;
-   box-shadow: inset 0 0 0 0 #FFFFFF;
-   transition: box-shadow 0.3s ease;
-}
-#Carousel1 .carousel-indicators .active
-{
-   box-shadow: inset 0 0 0 5px #FFFFFF;
-}
-#Carousel1 .frame
-{
-   width: 1914px;
-   display: inline-block;
-   float: left;
-   height: 421px;
-}
-#Carousel1 .frame-1
-{
-   background-color: transparent;
-   background-image: url('../images/stad1.png');
-   background-repeat: no-repeat;
-   background-position: center center;
-   background-attachment: scroll;
-   background-size: cover;
-}
-@keyframes Carousel1-animation-show
-{
-   0%   { transform: translateX(100%); }
-   100% { transform: translateX(0); }
-}
-@keyframes Carousel1-animation-hide
-{
-   0%   { transform: translateX(0); }
-   100% { transform: translateX(-100%); }
 }
 #wb_Image1
 {
@@ -650,7 +503,7 @@ body
    padding: 8px 15px 8px 15px;
    background-color: #303A53;
    background-image: none;
-   border: 1px solid #303A53;
+   border: 1px solid transparent;
    border-radius: 4px;
    font-family: Arial;
    font-weight: normal;
@@ -688,6 +541,114 @@ body
    content: "/";
    padding: 0 5px;
    color: #303A53;
+}
+#wb_Carousel1
+{
+   background-color: transparent;
+   background-image: none;
+   border-radius: 0px;
+   margin: 0;
+}
+#wb_Carousel1
+{
+   height: 33vh;
+}
+#Carousel1
+{
+   position: relative;
+   margin: 0;
+   line-height: 1;
+   height: 100%;
+   box-sizing: border-box;
+}
+#Carousel1 .carousel-inner
+{
+   overflow: hidden;
+   width: 100%;
+   height: 100%;
+   position: relative;
+}
+.carousel.pointer-event
+{
+   -ms-touch-action: pan-y;
+   touch-action: pan-y;
+}
+#Carousel1 .carousel-inner::after
+{
+   display: block;
+   clear: both;
+   content: "";
+}
+#Carousel1 .carousel-inner > .carousel-item
+{
+   display: none;
+   position: relative;
+   float: left;
+   width: 100%;
+   margin-right: -100%;
+   -webkit-backface-visibility: hidden;
+   backface-visibility: hidden;
+   opacity: 0;
+   transition: opacity 300ms ease-in-out;
+   height: 100%;
+   text-align: center;
+}
+#Carousel1 .carousel-item-inner
+{
+   padding: 0 0 50px 0;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   justify-content: flex-end;
+   height: 100%;
+   box-sizing: border-box;
+}
+#Carousel1 .carousel-inner > .carousel-item > img, #Carousel1 .carousel-inner > .carousel-item > a > img
+{
+   display: block;
+   line-height: 1;
+}
+#Carousel1 .carousel-inner > .active, #Carousel1 .carousel-inner > .carousel-item-next, #Carousel1 .carousel-inner > .carousel-item-prev
+{
+   display: block;
+}
+#Carousel1 .carousel-inner > .active
+{
+   opacity: 1;
+   z-index: 1;
+}
+#Carousel1 .carousel-inner > .carousel-item-next, #Carousel1 .carousel-inner > .carousel-item-prev
+{
+   position: absolute;
+   top: 0;
+   width: 100%;
+}
+#Carousel1 .carousel-inner > .carousel-item-next.carousel-item-start, #Carousel1 .carousel-inner > .carousel-item-prev.carousel-item-end
+{
+   opacity: 1;
+   z-index: 1;
+}
+#Carousel1 .carousel-inner > .active.carousel-item-start, #Carousel1 .carousel-inner > .active.carousel-item-end
+{
+   opacity: 0;
+   z-index: 0;
+   transition: opacity 600ms;
+}
+#Carousel1 .frame
+{
+   width: 1914px;
+   display: inline-block;
+   float: left;
+   height: 421px;
+}
+#Carousel1 .frame-1
+{
+   background-color: transparent;
+   background-image: url('../images/stad1.png');
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-attachment: scroll;
+   background-size: cover;
 }
 #wb_LayoutGrid1
 {
@@ -947,7 +908,7 @@ body
 #wb_CssMenu1
 {
    display: inline-block;
-   width: 461px;
+   width: 496px;
    height: 28px;
    z-index: 1;
 }
@@ -1086,20 +1047,6 @@ body
    justify-content: center;
    text-align: center;
 }
-#wb_Carousel1
-{
-   visibility: visible;
-   display: block;
-}
-#wb_Carousel1
-{
-   margin: 0;
-   height: 33vh;
-}
-#Carousel1 .carousel-item-inner
-{
-   padding: 0 0 50px 0;
-}
 #wb_Image1
 {
    width: 286px;
@@ -1180,7 +1127,7 @@ body
    visibility: visible;
    display: block;
    margin: 0 10px 0 10px;
-   padding: 50px 0 50px 0;
+   padding: 50px 0 30px 0;
    font-size: 32px;
    font-family: Arial;
    font-weight: bold;
@@ -1220,6 +1167,20 @@ body
 #Breadcrumb2 > li + li:before
 {
    padding: 0 5px;
+}
+#wb_Carousel1
+{
+   visibility: visible;
+   display: block;
+}
+#wb_Carousel1
+{
+   margin: 0;
+   height: 357px;
+}
+#Carousel1 .carousel-item-inner
+{
+   padding: 0 0 50px 0;
 }
 #wb_LayoutGrid1
 {
@@ -1439,20 +1400,6 @@ body
    justify-content: center;
    text-align: center;
 }
-#wb_Carousel1
-{
-   visibility: visible;
-   display: block;
-}
-#wb_Carousel1
-{
-   margin: 0;
-   height: 33vh;
-}
-#Carousel1 .carousel-item-inner
-{
-   padding: 0 0 50px 0;
-}
 #wb_Image1
 {
    width: 286px;
@@ -1533,7 +1480,7 @@ body
    visibility: visible;
    display: block;
    margin: 0 10px 0 10px;
-   padding: 30px 0 30px 0;
+   padding: 30px 0 15px 0;
    font-size: 19px;
    font-family: Arial;
    font-weight: bold;
@@ -1573,6 +1520,20 @@ body
 #Breadcrumb2 > li + li:before
 {
    padding: 0 5px;
+}
+#wb_Carousel1
+{
+   visibility: visible;
+   display: block;
+}
+#wb_Carousel1
+{
+   margin: 0;
+   height: 300px;
+}
+#Carousel1 .carousel-item-inner
+{
+   padding: 0 0 50px 0;
 }
 #wb_LayoutGrid1
 {
@@ -1792,20 +1753,6 @@ body
    justify-content: center;
    text-align: center;
 }
-#wb_Carousel1
-{
-   visibility: visible;
-   display: block;
-}
-#wb_Carousel1
-{
-   margin: 0;
-   height: 33vh;
-}
-#Carousel1 .carousel-item-inner
-{
-   padding: 0 0 50px 0;
-}
 #wb_Image1
 {
    width: 286px;
@@ -1886,7 +1833,7 @@ body
    visibility: visible;
    display: block;
    margin: 0 10px 0 10px;
-   padding: 30px 0 30px 0;
+   padding: 30px 0 15px 0;
    font-size: 19px;
    font-family: Arial;
    font-weight: bold;
@@ -1926,6 +1873,20 @@ body
 #Breadcrumb2 > li + li:before
 {
    padding: 0 5px;
+}
+#wb_Carousel1
+{
+   visibility: visible;
+   display: block;
+}
+#wb_Carousel1
+{
+   margin: 0;
+   height: 248px;
+}
+#Carousel1 .carousel-item-inner
+{
+   padding: 0 0 50px 0;
 }
 #wb_LayoutGrid1
 {

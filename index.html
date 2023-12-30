@@ -8,6 +8,8 @@ Företagsöversikt
 <meta name="keywords" content="KNS Consulting, Projektledning, IT-tjänster, Uppsala, Stockholm">
 <meta name="author" content="Niklas Johansson">
 <meta name="categories" content="Huvudsida">
+<meta name="robots" content="index, follow">
+<meta name="revisit-after" content="1 day">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
 <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -54,7 +56,7 @@ Företagsöversikt
                         </li>
                      </ul>
                   </li>
-                  <li role="menuitem" class="nav-item" itemprop="name"><a class="nav-link active" href="./index.html#LayoutGrid1" target="_self" itemprop="url">Kontakt</a>
+                  <li role="menuitem" class="nav-item" itemprop="name"><a class="nav-link active" href="./index.html#LayoutGrid2" target="_self" itemprop="url">Kontakt</a>
                   </li>
                   <li role="menuitem" class="nav-item" itemprop="name"><a class="nav-link" href="https://www.linkedin.com/in/niklas-johansson-98bab72a3/" target="_self" itemprop="url"><i class="fa fa-linkedin-square">&nbsp;</i></a>
                   </li>
@@ -142,7 +144,7 @@ Företagsöversikt
                   <div id="Card3-card-header"></div>
                   <div id="Card3-card-body">
                      <div id="Card3-card-item1">Referensprojekt bygg</div>
-                     <div id="Card3-card-item2">Utforska våra projekt inom elinstallation: en översikt av genomförda projekt som återspeglar vår gedigna erfarenhet och kapacitet i branschen.</div>
+                     <div id="Card3-card-item2">Utforska våra tidigare projekt inom elinstallation: en översikt av genomförda projekt som återspeglar vår gedigna erfarenhet och kapacitet i branschen.</div>
                      <div id="Card3-card-item3"><a href="./Referensprojekt-bygg.html">Läs mer</a></div>
                   </div>
                   <div id="Card3-card-footer"></div>
@@ -167,9 +169,6 @@ Företagsöversikt
    </div>
    <div id="wb_Carousel1">
       <div id="Carousel1" class="carousel slide" data-bs-ride="carousel">
-         <ol class="carousel-indicators">
-            <li data-bs-target="#Carousel1" data-bs-slide-to="0" class="active"></li>
-         </ol>
          <div class="carousel-inner">
             <div class="carousel-item frame-1 active">
                <div class="carousel-item-inner">
@@ -195,19 +194,19 @@ Företagsöversikt
                   <span style="color:#4F4F4F;">Email: info@knsc.se</span>
                </div>
                <div id="wb_Icon1">
-                  <div id="Icon1"><i class="fa fa-envelope"></i></div>
+                  <a href="mailto: info@knsc.se"><div id="Icon1"><i class="fa fa-envelope"></i></div></a>
                </div>
                <div id="wb_Icon2">
-                  <div id="Icon2"><i class="fa fa-linkedin-square"></i></div>
+                  <a href="https://www.linkedin.com/in/niklas-johansson-98bab72a3/"><div id="Icon2"><i class="fa fa-linkedin-square"></i></div></a>
                </div>
             </div>
             <div class="col-2">
                <div id="wb_Text4">
 &nbsp;
                </div>
-               <input type="text" id="Editbox3" name="name" value="" spellcheck="false" placeholder="Namn">
-               <input type="text" id="Editbox4" name="email" value="" spellcheck="false" placeholder="Email">
-               <textarea name="message" id="TextArea2" rows="4" cols="60" autocomplete="off" spellcheck="false" placeholder="Meddelande"></textarea>
+               <input type="text" id="Editbox3" name="name" value="" tabindex="Namn" spellcheck="false" title="Namn" placeholder="Namn">
+               <input type="text" id="Editbox4" name="email" value="" tabindex="Email" spellcheck="false" title="Email" placeholder="Email">
+               <textarea name="message" id="TextArea2" rows="4" cols="120" tabindex="Meddelande" autocomplete="off" spellcheck="false" title="Meddelande" placeholder="Meddelande"></textarea>
                <input type="submit" id="Button1" name="" value="Skicka">
             </div>
          </div>

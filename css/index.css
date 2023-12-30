@@ -554,7 +554,6 @@ body
    width: 100%;
    height: 100%;
    position: relative;
-   perspective: 1200px;
 }
 .carousel.pointer-event
 {
@@ -576,9 +575,8 @@ body
    margin-right: -100%;
    -webkit-backface-visibility: hidden;
    backface-visibility: hidden;
-   transform: translate3d(0, 0, 0);
-   transform-style: preserve-3d;
-   transition: opacity 500ms ease-in-out;
+   opacity: 0;
+   transition: opacity 300ms ease-in-out;
    height: 100%;
    text-align: center;
 }
@@ -603,7 +601,8 @@ body
 }
 #Carousel1 .carousel-inner > .active
 {
-   animation: Carousel1-animation-show 500ms ease 0ms both;
+   opacity: 1;
+   z-index: 1;
 }
 #Carousel1 .carousel-inner > .carousel-item-next, #Carousel1 .carousel-inner > .carousel-item-prev
 {
@@ -613,42 +612,14 @@ body
 }
 #Carousel1 .carousel-inner > .carousel-item-next.carousel-item-start, #Carousel1 .carousel-inner > .carousel-item-prev.carousel-item-end
 {
-   animation: Carousel1-animation-show 500ms ease 0ms both;
+   opacity: 1;
+   z-index: 1;
 }
 #Carousel1 .carousel-inner > .active.carousel-item-start, #Carousel1 .carousel-inner > .active.carousel-item-end
 {
-   animation: Carousel1-animation-hide 500ms ease both;
-}
-#Carousel1 .carousel-indicators
-{
-   list-style: none;
-   bottom: 0;
-   padding: 0;
-   margin: 0;
-   position: absolute;
-   margin-left: -21px;
-   left: 50%;
-   vertical-align: middle;
-   z-index: 999;
-}
-#Carousel1 .carousel-indicators li
-{
-   display: block;
-   float: left;
-   margin: 16px 16px 16px 16px;
-   width: 9px;
-   height: 9px;
-   cursor: pointer;
-   text-indent: -999px;
-   border-radius: 50%;
-   background-color: transparent;
-   border: 1px solid #FFFFFF;
-   box-shadow: inset 0 0 0 0 #FFFFFF;
-   transition: box-shadow 0.3s ease;
-}
-#Carousel1 .carousel-indicators .active
-{
-   box-shadow: inset 0 0 0 5px #FFFFFF;
+   opacity: 0;
+   z-index: 0;
+   transition: opacity 600ms;
 }
 #Carousel1 .frame
 {
@@ -665,16 +636,6 @@ body
    background-position: center center;
    background-attachment: scroll;
    background-size: cover;
-}
-@keyframes Carousel1-animation-show
-{
-   0%   { transform: translateX(100%); }
-   100% { transform: translateX(0); }
-}
-@keyframes Carousel1-animation-hide
-{
-   0%   { transform: translateX(0); }
-   100% { transform: translateX(-100%); }
 }
 #wb_LayoutGrid2
 {
@@ -1576,6 +1537,17 @@ body
    display:inline-block;
    position:relative;
 }
+#wb_Icon1 a::after
+{
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   z-index: 1;
+   pointer-events: auto;
+   content: "";
+}
 #Icon1
 {
    height: 33px;
@@ -1665,6 +1637,17 @@ body
    display:inline-block;
    position:relative;
 }
+#wb_Icon2 a::after
+{
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   z-index: 1;
+   pointer-events: auto;
+   content: "";
+}
 #Icon2
 {
    height: 33px;
@@ -1689,7 +1672,7 @@ body
    border-radius: 6px;
    background-color: #FFFFFF;
    background-image: none;
-   color: #999999;
+   color: #000000;
    font-family: Arial;
    font-weight: normal;
    font-style: normal;
@@ -1712,7 +1695,7 @@ body
    border-radius: 6px;
    background-color: #FFFFFF;
    background-image: none;
-   color: #999999;
+   color: #000000;
    font-family: Arial;
    font-weight: normal;
    font-style: normal;
@@ -1736,7 +1719,7 @@ body
    border-radius: 6px;
    background-color: #FFFFFF;
    background-image: none;
-   color: #999999;
+   color: #000000;
    font-family: Arial;
    font-weight: normal;
    font-style: normal;
@@ -2235,7 +2218,7 @@ body
    height: 38px;
    visibility: visible;
    display: inline-block;
-   margin: 30px 0 0 0 ;
+   margin: 30px 0 15px 0 ;
    padding: 0;
 }
 #FontAwesomeIcon1
@@ -2249,7 +2232,7 @@ body
    height: 38px;
    visibility: visible;
    display: inline-block;
-   margin: 30px 0 0 0 ;
+   margin: 30px 0 15px 0 ;
    padding: 0;
 }
 #FontAwesomeIcon2
@@ -3263,7 +3246,7 @@ body
 #Card2-card-item1
 {
    box-sizing: border-box;
-   margin: 20px 20px 0 20px;
+   margin: 10px 20px 0 20px;
    padding: 0;
    color: #3370B7;
    font-family: Arial;
@@ -3274,7 +3257,7 @@ body
 #Card2-card-item2
 {
    box-sizing: border-box;
-   margin: 20px 20px 0 20px;
+   margin: 10px 20px 0 20px;
    padding: 0;
    color: #696969;
    font-family: Arial;
@@ -3351,7 +3334,7 @@ body
 #Card4-card-item1
 {
    box-sizing: border-box;
-   margin: 20px 20px 0 20px;
+   margin: 10px 20px 0 20px;
    padding: 0;
    color: #3370B7;
    font-family: Arial;
@@ -3362,7 +3345,7 @@ body
 #Card4-card-item2
 {
    box-sizing: border-box;
-   margin: 20px 20px 0 20px;
+   margin: 10px 20px 0 20px;
    padding: 0;
    color: #696969;
    font-family: Arial;
@@ -3439,7 +3422,7 @@ body
 #Card3-card-item1
 {
    box-sizing: border-box;
-   margin: 20px 20px 0 20px;
+   margin: 10px 20px 0 20px;
    padding: 0;
    color: #3370B7;
    font-family: Arial;
@@ -3450,7 +3433,7 @@ body
 #Card3-card-item2
 {
    box-sizing: border-box;
-   margin: 20px 20px 0 20px;
+   margin: 10px 20px 0 20px;
    padding: 0;
    color: #696969;
    font-family: Arial;
@@ -3532,7 +3515,7 @@ body
 #Card1-card-item1
 {
    box-sizing: border-box;
-   margin: 20px 20px 0 20px;
+   margin: 10px 20px 0 20px;
    padding: 0;
    color: #3370B7;
    font-family: Arial;
@@ -3543,7 +3526,7 @@ body
 #Card1-card-item2
 {
    box-sizing: border-box;
-   margin: 20px 20px 0 20px;
+   margin: 10px 20px 0 20px;
    padding: 0;
    color: #696969;
    font-family: Arial;
@@ -4208,7 +4191,7 @@ body
 #Card2-card-item1
 {
    box-sizing: border-box;
-   margin: 20px 20px 0 20px;
+   margin: 10px 20px 0 20px;
    padding: 0;
    color: #3370B7;
    font-family: Arial;
@@ -4219,7 +4202,7 @@ body
 #Card2-card-item2
 {
    box-sizing: border-box;
-   margin: 20px 20px 0 20px;
+   margin: 10px 20px 0 20px;
    padding: 0;
    color: #696969;
    font-family: Arial;
@@ -4232,7 +4215,7 @@ body
    display: inline-block;
    height: 35px;
    box-sizing: border-box;
-   margin: 25px 20px 20px 20px;
+   margin: 15px 20px 20px 20px;
    padding: 10px 16px 10px 16px;
    border: 1px solid #0275D8;
    border-radius: 4px;
@@ -4296,7 +4279,7 @@ body
 #Card4-card-item1
 {
    box-sizing: border-box;
-   margin: 20px 20px 0 20px;
+   margin: 10px 20px 0 20px;
    padding: 0;
    color: #3370B7;
    font-family: Arial;
@@ -4307,7 +4290,7 @@ body
 #Card4-card-item2
 {
    box-sizing: border-box;
-   margin: 20px 20px 0 20px;
+   margin: 10px 20px 0 20px;
    padding: 0;
    color: #696969;
    font-family: Arial;
@@ -4320,7 +4303,7 @@ body
    display: inline-block;
    height: 35px;
    box-sizing: border-box;
-   margin: 25px 20px 20px 20px;
+   margin: 15px 20px 20px 20px;
    padding: 10px 16px 10px 16px;
    border: 1px solid #0275D8;
    border-radius: 4px;
@@ -4384,7 +4367,7 @@ body
 #Card3-card-item1
 {
    box-sizing: border-box;
-   margin: 20px 20px 0 20px;
+   margin: 10px 20px 0 20px;
    padding: 0;
    color: #3370B7;
    font-family: Arial;
@@ -4395,7 +4378,7 @@ body
 #Card3-card-item2
 {
    box-sizing: border-box;
-   margin: 20px 20px 0 20px;
+   margin: 10px 20px 0 20px;
    padding: 0;
    color: #696969;
    font-family: Arial;
@@ -4408,7 +4391,7 @@ body
    display: inline-block;
    height: 35px;
    box-sizing: border-box;
-   margin: 25px 20px 20px 20px;
+   margin: 15px 20px 20px 20px;
    padding: 10px 16px 10px 16px;
    border: 1px solid #0275D8;
    border-radius: 4px;
@@ -4477,7 +4460,7 @@ body
 #Card1-card-item1
 {
    box-sizing: border-box;
-   margin: 20px 20px 0 20px;
+   margin: 10px 20px 0 20px;
    padding: 0;
    color: #3370B7;
    font-family: Arial;
@@ -4488,7 +4471,7 @@ body
 #Card1-card-item2
 {
    box-sizing: border-box;
-   margin: 20px 20px 0 20px;
+   margin: 10px 20px 0 20px;
    padding: 0;
    color: #696969;
    font-family: Arial;
@@ -4501,7 +4484,7 @@ body
    display: inline-block;
    height: 35px;
    box-sizing: border-box;
-   margin: 25px 20px 20px 20px;
+   margin: 15px 20px 20px 20px;
    padding: 10px 16px 10px 16px;
    border: 1px solid #0275D8;
    border-radius: 4px;

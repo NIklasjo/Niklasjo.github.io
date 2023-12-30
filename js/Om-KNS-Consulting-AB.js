@@ -1,8 +1,8 @@
    
    document.addEventListener('DOMContentLoaded', function(event)
    {
-      var elementCarousel1 = document.querySelector('#Carousel1');
-      elementCarousel1.addEventListener('slid.bs.carousel', function(e)
+      var elementCarousel2 = document.querySelector('#Carousel2');
+      elementCarousel2.addEventListener('slid.bs.carousel', function(e)
       {
          switch(e.to)
          {
@@ -11,7 +11,7 @@
                break;
          }
       });
-      var Carousel1 = new bootstrap.Carousel('#Carousel1', {interval: 3000, pause: false});
+      var Carousel2 = new bootstrap.Carousel('#Carousel2', {interval: 3000, pause: false});
    });
    
    $(document).ready(function()

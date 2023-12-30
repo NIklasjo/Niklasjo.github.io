@@ -2,43 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>http://www.knsc.se/</loc>
-		<lastmod>2023-12-29</lastmod>
+		<lastmod>2023-12-30</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
 	<url>
 		<loc>http://www.knsc.se/Integritetspolicy.html</loc>
-		<lastmod>2023-12-29</lastmod>
+		<lastmod>2023-12-30</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
 	<url>
 		<loc>http://www.knsc.se/Om-KNS-Consulting-AB.html</loc>
-		<lastmod>2023-12-29</lastmod>
+		<lastmod>2023-12-30</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
 	<url>
 		<loc>http://www.knsc.se/Referensprojekt-bygg.html</loc>
-		<lastmod>2023-12-29</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.5</priority>
-	</url>
-	<url>
-		<loc>http://www.knsc.se/Tjanster-inom-bygg-och-projektledning.html</loc>
-		<lastmod>2023-12-29</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.5</priority>
-	</url>
-	<url>
-		<loc>http://www.knsc.se/Tjanster-Google-Sheets-och-Excel.html</loc>
-		<lastmod>2023-12-29</lastmod>
+		<lastmod>2023-12-30</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
 	<url>
 		<loc>http://www.knsc.se/Google-Sheets-Projekt.html</loc>
-		<lastmod>2023-12-29</lastmod>
+		<lastmod>2023-12-30</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
+		<loc>http://www.knsc.se/Tjanster-inom-bygg-och-projektledning.html</loc>
+		<lastmod>2023-12-30</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
+		<loc>http://www.knsc.se/Tjanster-Google-Sheets-och-Excel.html</loc>
+		<lastmod>2023-12-30</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
+		<loc>http://www.knsc.se/Google-Sheets-Framf%C3%B6r-Excel.html</loc>
+		<lastmod>2023-12-30</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>

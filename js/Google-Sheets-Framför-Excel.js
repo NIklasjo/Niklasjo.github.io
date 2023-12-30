@@ -1,9 +1,6 @@
    
    document.addEventListener('DOMContentLoaded', function(event)
    {
-      var SlideShow1 = new bootstrap.Carousel("#SlideShow1", {interval:3000, ride: true});
-      var SlideShow2 = new bootstrap.Carousel("#SlideShow2", {interval:3000, ride: true});
-      var SlideShow3 = new bootstrap.Carousel("#SlideShow3", {interval:3000, ride: true});
       var elementCarousel1 = document.querySelector('#Carousel1');
       elementCarousel1.addEventListener('slid.bs.carousel', function(e)
       {
