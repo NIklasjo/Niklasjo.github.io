@@ -106,7 +106,7 @@ body
    display: table;
    text-align: center;
    width: 100%;
-   background-color: #F5F5F5;
+   background-color: rgba(245,245,245,0.04);
    background-image: none;
    border: 0px solid #CCCCCC;
    border-radius: 0px;
@@ -998,8 +998,6 @@ body
 {
    visibility: visible;
    display: table;
-   background-color: rgba(245,245,245,0.04);
-   background-image: none;
 }
 #wb_LayoutGrid2
 {
@@ -1353,8 +1351,6 @@ body
 {
    visibility: visible;
    display: table;
-   background-color: #F5F5F5;
-   background-image: none;
 }
 #wb_LayoutGrid2
 {
@@ -1421,10 +1417,30 @@ body
 {
    visibility: visible;
    display: block;
-   font-size: 13px;
+   font-size: 19px;
    font-family: Arial;
    font-style: normal;
    text-decoration: none;
+}
+#Article1
+{
+   font-family: Arial;
+   font-size: 19px;
+}
+#Article1 .blogdate
+{
+   font-family: Arial;
+   font-size: 13px;
+}
+#Article1 .blogsubject
+{
+   font-family: Arial;
+   font-size: 27px;
+}
+#Article1 .blogcomments
+{
+   font-family: Arial;
+   font-size: 19px;
 }
 #Article1 .blogcolumn
 {
@@ -1708,8 +1724,6 @@ body
 {
    visibility: visible;
    display: table;
-   background-color: #F5F5F5;
-   background-image: none;
 }
 #wb_LayoutGrid2
 {
