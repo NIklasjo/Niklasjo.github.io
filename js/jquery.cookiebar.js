@@ -32,7 +32,7 @@
 			declineFunction: function(cookieValue){if(cookieValue=='enabled' || cookieValue=='accepted') window.location = window.location.href;}, //Function to run after decline
 			policyButton: true, //Set to true to show Privacy Policy button
 			policyText: 'Integritetspolicy', //Text on Privacy Policy button
-			policyURL: '/Integritetspolicy/', //URL of Privacy Policy
+			policyURL: 'https://knsc.se/Integritetspolicy.html', //URL of Privacy Policy
 			autoEnable: true, //Set to true for cookies to be accepted automatically. Banner still shows
 			acceptOnContinue: true, //Set to true to accept cookies when visitor moves to another page
 			acceptOnScroll: false, //Set to true to accept cookies when visitor scrolls X pixels up or down
