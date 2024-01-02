@@ -18,6 +18,7 @@
          }
       });
       var welcome_carousel = new bootstrap.Carousel('#welcome-carousel', {interval: 3000, pause: false});
+      var Carousel3 = new bootstrap.Carousel('#Carousel3', {interval: 3000, pause: false});
       var elementCarousel1 = document.querySelector('#Carousel1');
       elementCarousel1.addEventListener('slid.bs.carousel', function(e)
       {
