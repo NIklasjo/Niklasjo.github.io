@@ -16,12 +16,33 @@ Företagsöversikt
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
 <link href="css/KNS_Consulting_AB.css" rel="stylesheet">
 <link href="css/index.css" rel="stylesheet">
+<link href="css/jquery.cookiebar.css" rel="stylesheet">
 <script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/jquery.cookiebar.js"></script>
 <script src="js/jquery.ui.effect.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/wwb18.min.js"></script>
 <script src="js/index.js"></script>
+<script>
+$(document).ready(function(){
+  $.cookieBar();
+});
+</script>
+<script>
+if(jQuery.cookieBar('cookies')){
+  (function(){
+    var gtagScript = document.createElement('script');
+    gtagScript.async = true;
+    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-VKHVM5ZNQR';
+    document.head.appendChild(gtagScript);
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-VKHVM5ZNQR');
+  })();
+}
+</script>
 </head>
 <body>
    <div id="container">
@@ -360,13 +381,16 @@ Företagsöversikt
                </div>
             </div>
             <div class="col-2">
-               <div id="wb_Text4">
-&nbsp;
-               </div>
-               <input type="text" id="Editbox3" name="name" value="" tabindex="Namn" spellcheck="false" title="Namn" placeholder="Namn">
-               <input type="text" id="Editbox4" name="email" value="" tabindex="Email" spellcheck="false" title="Email" placeholder="Email">
-               <textarea name="message" id="TextArea2" rows="4" cols="120" tabindex="Meddelande" autocomplete="off" spellcheck="false" title="Meddelande" placeholder="Meddelande"></textarea>
-               <input type="submit" id="Button1" name="" value="Skicka">
+               <div id="wb_Text4">&nbsp;</div>
+               <!-- Start of Formspree form -->
+               <form action="https://formspree.io/f/meqyjqjb" method="POST">
+                  <input type="text" id="Editbox3" name="name" value="" placeholder="Namn" required>
+                  <input type="email" id="Editbox4" name="email" value="" placeholder="Email" required>
+                  <textarea name="message" id="TextArea2" rows="4" cols="120" placeholder="Meddelande" required></textarea>
+                  <input type="submit" id="Button1" name="submit" value="Skicka">
+               </form>
+               <!-- End of Formspree form -->
+              </div>
             </div>
          </div>
       </div>
