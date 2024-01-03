@@ -7,17 +7,14 @@
          switch(e.to)
          {
             case 0:
-               AnimateCss('welcome-button1', 'slide-down-in', 2000, 1000);
-               break;
-            case 1:
                AnimateCss('welcome-button2', 'slide-down-in', 2000, 1000);
                break;
-            case 2:
+            case 1:
                AnimateCss('welcome-button3', 'slide-down-in', 2000, 1000);
                break;
          }
       });
-      var welcome_carousel = new bootstrap.Carousel('#welcome-carousel', {interval: 3000, pause: false});
+      var welcome_carousel = new bootstrap.Carousel('#welcome-carousel', {interval: 5000, pause: false});
       var Carousel3 = new bootstrap.Carousel('#Carousel3', {interval: 3000, pause: false});
       var elementCarousel1 = document.querySelector('#Carousel1');
       elementCarousel1.addEventListener('slid.bs.carousel', function(e)

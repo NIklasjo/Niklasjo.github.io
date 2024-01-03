@@ -224,7 +224,7 @@ body
    padding: 0;
    margin: 0;
    position: absolute;
-   margin-left: -63px;
+   margin-left: -42px;
    left: 50%;
    vertical-align: middle;
    z-index: 999;
@@ -333,22 +333,13 @@ body
 #welcome-carousel .frame-1
 {
    background-color: transparent;
-   background-image: url('../images/stad2.jpg');
-   background-repeat: no-repeat;
-   background-position: center center;
-   background-attachment: scroll;
-   background-size: cover;
-}
-#welcome-carousel .frame-2
-{
-   background-color: transparent;
    background-image: url('../images/copmputer.jpg');
    background-repeat: no-repeat;
    background-position: center center;
    background-attachment: scroll;
    background-size: cover;
 }
-#welcome-carousel .frame-3
+#welcome-carousel .frame-2
 {
    background-color: transparent;
    background-image: url('../images/ritningar.jpg');
