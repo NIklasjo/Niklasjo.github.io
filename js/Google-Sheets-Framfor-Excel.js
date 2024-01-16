@@ -1,4 +1,8 @@
-   
+     var el = document.getElementById('LayoutGrid2');
+   if (el.addEventListener)
+   {
+      el.addEventListener('touchmove', ontouchmoveLayoutGrid2);
+   }
    document.addEventListener('DOMContentLoaded', function(event)
    {
       var elementCarousel1 = document.querySelector('#Carousel1');
@@ -61,11 +65,7 @@
      })();
    }
    
-   var el = document.getElementById('LayoutGrid2');
-   if (el.addEventListener)
-   {
-      el.addEventListener('touchmove', ontouchmoveLayoutGrid2);
-   }
+ 
    function ontouchmoveLayoutGrid2(e)
    {
       AnimationResume('Card1');
