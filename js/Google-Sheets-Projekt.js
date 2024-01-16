@@ -1,4 +1,12 @@
-   
+var elementCarousel1 = document.querySelector('#Carousel1');
+if (elementCarousel1) {
+    elementCarousel1.addEventListener('slid.bs.carousel', function(e) {
+        var el = document.getElementById('LayoutGrid2');
+   if (el.addEventListener)
+   {
+      el.addEventListener('touchmove', ontouchmoveLayoutGrid2);
+   }
+    });
    document.addEventListener('DOMContentLoaded', function(event)
    {
       var SlideShow1 = new bootstrap.Carousel("#SlideShow1", {interval:3000, ride: true});
@@ -64,15 +72,7 @@
      })();
    }
    
-        var elementCarousel1 = document.querySelector('#Carousel1');
-if (elementCarousel1) {
-    elementCarousel1.addEventListener('slid.bs.carousel', function(e) {
-        var el = document.getElementById('LayoutGrid2');
-   if (el.addEventListener)
-   {
-      el.addEventListener('touchmove', ontouchmoveLayoutGrid2);
-   }
-    });
+
    function ontouchmoveLayoutGrid2(e)
    {
       AnimationResume('Card1');
