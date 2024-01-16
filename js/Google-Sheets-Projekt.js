@@ -6,7 +6,7 @@ if (elementCarousel1) {
    {
       el.addEventListener('touchmove', ontouchmoveLayoutGrid2);
    }
-    });
+    }});
    document.addEventListener('DOMContentLoaded', function(event)
    {
       var SlideShow1 = new bootstrap.Carousel("#SlideShow1", {interval:3000, ride: true});
