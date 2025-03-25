@@ -287,21 +287,73 @@ if(jQuery.cookieBar('cookies')){
   </script>
 </body>
 </html>
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
-	<channel>
-		<title>RSS Feed</title>
-		<description>		</description>
-		<link>http://www.svt.se/nyheter/rss.xml/</link>
-	</channel>
-</rss>
-</html>
-            </div>
-            <a href="rss.xml"><img id="RssFeed2" src="images/rss.png" width="36" height="14" alt="RSS Feed" style="position:absolute;left:69px;top:494px;z-index:16;"></a>
-         </div>
-         <div id="wb_Text14" style="position:absolute;left:21px;top:0px;width:1879px;height:84px;text-align:center;z-index:20;">
-            <p>Välkommen till vattugatan 5</p></div>
-      </div>
-   </div>
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSS-läsare</title>
+    <style>
+        #rss-feed {
+            width: 300px; /* Ändra bredden här */
+            height: 400px; /* Ändra höjden här */
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+        }
+        .rss-item {
+            margin-bottom: 15px;
+        }
+        .rss-item a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #0077cc;
+        }
+        .rss-item a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>SVT Nyheter</h2>
+    <div id="rss-feed">Laddar RSS...</div>
+
+    <script>
+        async function fetchRSS() {
+            const rssUrl = 'http://www.svt.se/nyheter/rss.xml/'; // SVT:s RSS-flöde
+            const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(rssUrl)}`;
+
+            try {
+                const response = await fetch(proxyUrl);
+                const data = await response.json();
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(data.contents, "text/xml");
+
+                let items = xml.querySelectorAll("item");
+                let feedContainer = document.getElementById("rss-feed");
+                feedContainer.innerHTML = "";
+
+                items.forEach((item, index) => {
+                    if (index < 5) { // Visar endast de 5 senaste inläggen
+                        let title = item.querySelector("title").textContent;
+                        let link = item.querySelector("link").textContent;
+
+                        let feedItem = document.createElement("div");
+                        feedItem.classList.add("rss-item");
+                        feedItem.innerHTML = `<a href="${link}" target="_blank">${title}</a>`;
+                        feedContainer.appendChild(feedItem);
+                    }
+                });
+            } catch (error) {
+                document.getElementById("rss-feed").innerHTML = "Misslyckades att ladda RSS.";
+            }
+        }
+
+        fetchRSS();
+    </script>
+
 </body>
 </html>
+
