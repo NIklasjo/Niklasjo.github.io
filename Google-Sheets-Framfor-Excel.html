@@ -287,73 +287,76 @@ if(jQuery.cookieBar('cookies')){
   </script>
 </body>
 </html>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSS-läsare</title>
+    <title>SVT Nyhetsfeed</title>
     <style>
-        #rss-feed {
-            width: 300px; /* Ändra bredden här */
-            height: 400px; /* Ändra höjden här */
-            overflow-y: auto;
-            border: 1px solid #ccc;
-            padding: 10px;
+        .news-container {
+            max-width: 800px;
+            margin: 20px auto;
             font-family: Arial, sans-serif;
         }
-        .rss-item {
-            margin-bottom: 15px;
+        .news-item {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
         }
-        .rss-item a {
-            font-weight: bold;
+        .news-item h2 {
+            font-size: 18px;
+            margin: 0;
+        }
+        .news-item a {
             text-decoration: none;
-            color: #0077cc;
+            color: #0066cc;
         }
-        .rss-item a:hover {
+        .news-item a:hover {
             text-decoration: underline;
+        }
+        .news-item p {
+            margin: 5px 0;
+            color: #333;
         }
     </style>
 </head>
 <body>
+    <div class="news-container" id="news-feed">
+        <h1>SVT Nyheter</h1>
+        <!-- Nyheterna laddas här -->
+    </div>
 
-    <h2>SVT Nyheter</h2>
-    <div id="rss-feed">Laddar RSS...</div>
-
+    <script src="https://unpkg.com/rss-parser@3.12.0/dist/rss-parser.min.js"></script>
     <script>
-        async function fetchRSS() {
-            const rssUrl = 'http://www.svt.se/nyheter/rss.xml/'; // SVT:s RSS-flöde
-            const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(rssUrl)}`;
-
+        (async () => {
+            const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"; // Proxy för att hantera CORS
+            const RSS_URL = "http://www.svt.se/nyheter/rss.xml";
+            const parser = new RSSParser();
+            
             try {
-                const response = await fetch(proxyUrl);
-                const data = await response.json();
-                const parser = new DOMParser();
-                const xml = parser.parseFromString(data.contents, "text/xml");
+                const feed = await parser.parseURL(CORS_PROXY + RSS_URL);
+                const newsContainer = document.getElementById("news-feed");
 
-                let items = xml.querySelectorAll("item");
-                let feedContainer = document.getElementById("rss-feed");
-                feedContainer.innerHTML = "";
-
-                items.forEach((item, index) => {
-                    if (index < 5) { // Visar endast de 5 senaste inläggen
-                        let title = item.querySelector("title").textContent;
-                        let link = item.querySelector("link").textContent;
-
-                        let feedItem = document.createElement("div");
-                        feedItem.classList.add("rss-item");
-                        feedItem.innerHTML = `<a href="${link}" target="_blank">${title}</a>`;
-                        feedContainer.appendChild(feedItem);
-                    }
+                feed.items.forEach(item => {
+                    const newsItem = document.createElement("div");
+                    newsItem.className = "news-item";
+                    newsItem.innerHTML = `
+                        <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
+                        <p>${item.contentSnippet ? item.contentSnippet.substring(0, 150) + "..." : "Ingen beskrivning tillgänglig"}</p>
+                    `;
+                    newsContainer.appendChild(newsItem);
                 });
             } catch (error) {
-                document.getElementById("rss-feed").innerHTML = "Misslyckades att ladda RSS.";
+                console.error("Fel vid hämtning av RSS-feed:", error);
+                document.getElementById("news-feed").innerHTML += "<p>Kunde inte ladda nyheterna.</p>";
             }
-        }
-
-        fetchRSS();
+        })();
     </script>
-
 </body>
 </html>
-
