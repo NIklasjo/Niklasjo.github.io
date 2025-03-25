@@ -381,26 +381,29 @@ if(jQuery.cookieBar('cookies')){
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 80%; /* Ändra bredden på tabellen */
-      max-width: 600px; /* Sätt en maxbredd om så önskas */
+      width: 100%;
+      max-width: 1000px;
       margin: auto;
     }
     .row {
       display: flex;
-      gap: 20px;
-      margin-bottom: 10px; /* Marginal mellan varje rad */
+      gap: 1px;
+      margin-bottom: 1px;
       width: 100%;
     }
     .left-col, .right-col {
       text-align: left;
-      width: 40%; /* Ändra bredden på vänster kolumn */
-      min-height: 30px; /* Sätt en höjd för att tomma celler ska skapa en rad */
-      color: white; /* Säkerställ att texten är vit */
+      width: 60%;
+      min-height: 20px;
+      color: white;
     }
     .right-col {
-      width: 60%; /* Ändra bredden på höger kolumn */
+      width: 180%;
+      text-align: left;
     }
-  </style>
+    .left-col {
+      text-align: center;
+    }
 </head>
 <body>
   <h1 id="output">Laddar data...</h1>
