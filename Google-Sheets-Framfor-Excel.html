@@ -168,3 +168,122 @@ if(jQuery.cookieBar('cookies')){
    </div>
    </body>
 </html>
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #dynamicImage {
+      max-width: 100%;
+      height: auto;
+    }
+    #errorMessage {
+      color: red;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div style="width: 600px; height: 400px;">
+    <img id="dynamicImage" src="" alt="Dynamisk bild">
+  </div>
+  
+  <div id="errorMessage"></div> <!-- För att visa felmeddelanden -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+  <script>
+    const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTNjWE8OLzRAVC9Mt4H1NLYXitG1yUWE61CiSwYStWPBJete0zvhXHVIoXR383ntdqFOn8yIVRHuajh/pub?gid=1706324128&single=true&output=csv";
+    
+    function convertDropboxLink(link) {
+      const regex = /https:\/\/www\.dropbox\.com\/scl\/fi\/[^?]+/;
+      const match = link.match(regex);
+      if (match) {
+        return link.replace("?dl=0", "?raw=1");
+      }
+      return link;
+    }
+
+    function showError(message) {
+      const errorMessageElement = document.getElementById('errorMessage');
+      errorMessageElement.textContent = message;
+    }
+
+    // Försök att hämta CSV med fetch() först
+    fetch(csvUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Nätverksfel när hämtar CSV');
+        }
+        return response.text();
+      })
+      .then(data => {
+        Papa.parse(data, {
+          header: true,
+          complete: function(results) {
+            if (results.data.length > 0 && results.data[0].gdriveurl) {
+              let imageUrl = results.data[0].gdriveurl;
+              imageUrl = convertDropboxLink(imageUrl);
+
+              // Logga bild-URL för felsökning
+              console.log("Bild-URL:", imageUrl);
+
+              // Sätt bildens URL och storlek här i JavaScript
+              const image = document.getElementById('dynamicImage');
+              image.src = imageUrl;
+
+              // Ange bildens storlek i px
+              image.style.width = '100%';  // Bildens bredd anpassas efter containern
+              image.style.height = 'auto'; // Bildens höjd justeras automatiskt
+            } else {
+              showError("Ingen bild-URL hittades i CSV-filen.");
+            }
+          },
+          error: function(err) {
+            showError("Fel vid parsing av CSV: " + err.message);
+          }
+        });
+      })
+      .catch(error => {
+        showError('Fel vid hämtning av CSV med fetch: ' + error.message);
+        
+        // Fallback: Använd XMLHttpRequest om fetch() misslyckas
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", csvUrl, true);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            const data = xhr.responseText;
+            Papa.parse(data, {
+              header: true,
+              complete: function(results) {
+                if (results.data.length > 0 && results.data[0].gdriveurl) {
+                  let imageUrl = results.data[0].gdriveurl;
+                  imageUrl = convertDropboxLink(imageUrl);
+
+                  // Logga bild-URL för felsökning
+                  console.log("Bild-URL:", imageUrl);
+
+                  // Sätt bildens URL och storlek här i JavaScript
+                  const image = document.getElementById('dynamicImage');
+                  image.src = imageUrl;
+
+                  // Ange bildens storlek i px
+                  image.style.width = '100%';  // Bildens bredd anpassas efter containern
+                  image.style.height = 'auto'; // Bildens höjd justeras automatiskt
+                } else {
+                  showError("Ingen bild-URL hittades i CSV-filen.");
+                }
+              },
+              error: function(err) {
+                showError("Fel vid parsing av CSV via XMLHttpRequest: " + err.message);
+              }
+            });
+          } else if (xhr.readyState === 4 && xhr.status !== 200) {
+            showError("Fel vid hämtning av CSV med XMLHttpRequest: " + xhr.status);
+          }
+        };
+        xhr.send();
+      });
+  </script>
+</body>
+</html>
