@@ -375,31 +375,30 @@ if(jQuery.cookieBar('cookies')){
       background-color: black;
       color: white;
       text-align: center;
-      font-size: 10px;
+      font-size: 30px;
     }
     .data-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 80%;
-      max-width: 800px;
+      width: 80%; /* Ändra bredden på tabellen */
+      max-width: 600px; /* Sätt en maxbredd om så önskas */
       margin: auto;
     }
     .row {
       display: flex;
       gap: 20px;
-      margin-bottom: 10px;
+      margin-bottom: 10px; /* Marginal mellan varje rad */
       width: 100%;
     }
-    .left-col {
+    .left-col, .right-col {
       text-align: left;
-      width: 40%;
-      min-height: 30px;
+      width: 40%; /* Ändra bredden på vänster kolumn */
+      min-height: 30px; /* Sätt en höjd för att tomma celler ska skapa en rad */
+      color: white; /* Säkerställ att texten är vit */
     }
     .right-col {
-      text-align: left;
-      width: 60%;
-      min-height: 30px;
+      width: 60%; /* Ändra bredden på höger kolumn */
     }
   </style>
 </head>
@@ -407,59 +406,57 @@ if(jQuery.cookieBar('cookies')){
   <h1 id="output">Laddar data...</h1>
 
   <script>
-    function loadSheetData() {
-      const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTNjWE8OLzRAVC9Mt4H1NLYXitG1yUWE61CiSwYStWPBJete0zvhXHVIoXR383ntdqFOn8yIVRHuajh/pub?gid=644303618&single=true&output=csv";
-      
-      fetch(url)
-        .then(response => {
-          if (!response.ok) throw new Error("Nätverksfel: " + response.status);
-          return response.text();
-        })
-        .then(text => {
-          const rows = text.split(/\r?\n/).map(row => row.split(","));
-          const selectedCells = [
-            { row: 1, leftCol: 1, rightCol: 0 },
-            { row: 2, leftCol: 1, rightCol: 0 },
-            { row: 3, leftCol: 1, rightCol: 0 },
-            { row: 4, leftCol: 1, rightCol: 0 },
-            { row: 5, leftCol: 1, rightCol: 0 }
-          ];
+    async function loadSheetData() {
+      try {
+        const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTNjWE8OLzRAVC9Mt4H1NLYXitG1yUWE61CiSwYStWPBJete0zvhXHVIoXR383ntdqFOn8yIVRHuajh/pub?gid=644303618&single=true&output=csv";
+        const response = await fetch(url);
+        if (!response.ok) throw new Error("Nätverksfel: " + response.status);
+        const text = await response.text();
+        
+        const rows = text.split(/\r?\n/).map(row => row.split(",")); // Splitta rader och kolumner
+        
+        // Ange vilka celler du vill visa
+        const selectedCells = [
+          { row: 1, leftCol: 1, rightCol: 0 },
+          { row: 2, leftCol: 1, rightCol: 0 },
+          { row: 3, leftCol: 1, rightCol: 0 },
+          { row: 4, leftCol: 1, rightCol: 0 },
+          { row: 5, leftCol: 1, rightCol: 0 }
+        ];
+        
+        const outputContainer = document.getElementById("output");
+        outputContainer.innerHTML = "";
+        const containerDiv = document.createElement("div");
+        containerDiv.classList.add("data-container");
+        
+        selectedCells.forEach(cell => {
+          const leftText = rows[cell.row]?.[cell.leftCol]?.trim() || "";
+          const rightText = rows[cell.row]?.[cell.rightCol]?.trim() || "";
           
-          const outputContainer = document.getElementById("output");
-          outputContainer.innerHTML = "";
-          const containerDiv = document.createElement("div");
-          containerDiv.classList.add("data-container");
-
-          selectedCells.forEach(cell => {
-            const leftText = rows[cell.row]?.[cell.leftCol]?.trim() || "";
-            const rightText = rows[cell.row]?.[cell.rightCol]?.trim() || "";
-
-            const rowDiv = document.createElement("div");
-            rowDiv.classList.add("row");
-
-            const leftColDiv = document.createElement("div");
-            leftColDiv.classList.add("left-col");
-            leftColDiv.innerText = leftText;
-            rowDiv.appendChild(leftColDiv);
-
-            const rightColDiv = document.createElement("div");
-            rightColDiv.classList.add("right-col");
-            rightColDiv.innerText = rightText;
-            rowDiv.appendChild(rightColDiv);
-
-            containerDiv.appendChild(rowDiv);
-          });
-
-          outputContainer.appendChild(containerDiv);
-        })
-        .catch(error => {
-          console.error("Fel vid hämtning av data:", error);
-          document.getElementById("output").innerText = "Ett fel uppstod: " + error.message;
+          const rowDiv = document.createElement("div");
+          rowDiv.classList.add("row");
+          
+          const leftColDiv = document.createElement("div");
+          leftColDiv.classList.add("left-col");
+          leftColDiv.innerText = leftText;
+          rowDiv.appendChild(leftColDiv);
+          
+          const rightColDiv = document.createElement("div");
+          rightColDiv.classList.add("right-col");
+          rightColDiv.innerText = rightText;
+          rowDiv.appendChild(rightColDiv);
+          
+          containerDiv.appendChild(rowDiv);
         });
+        
+        outputContainer.appendChild(containerDiv);
+      } catch (error) {
+        document.getElementById("output").innerText = "Ett fel uppstod: " + error.message;
+      }
     }
 
-    // Fördröj laddning om Web Builder inte kör script direkt
-    setTimeout(loadSheetData, 1000);
+    loadSheetData();
   </script>
 </body>
 </html>
+
