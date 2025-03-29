@@ -83,7 +83,7 @@ body
       font-family: Arial, sans-serif;
     }
     .widget-container {
-      width: 265px;
+      width: auto;
       max-height: 1000px; /* Kan justeras om det behövs */
       overflow-y: auto;
       border: 1px solid #ccc;
