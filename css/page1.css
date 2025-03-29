@@ -25,6 +25,7 @@ body
    display: table;
    text-align: center;
    width: 100%;
+   height: auto;
    background-color: transparent;
    background-image: none;
    border: 0px solid #CCCCCC;
@@ -39,12 +40,13 @@ body
    flex-direction: row;
    flex-wrap: wrap;
    padding: 0;
+   height: auto;
    margin-right: auto;
    margin-left: auto;
 }
 #LayoutGrid1 > .col-1
 {
-   box-sizing: border-box;
+   box-sizing: auto;
    font-size: 0;
    min-height: 1px;
    padding-right: 15px;
