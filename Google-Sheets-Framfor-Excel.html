@@ -363,6 +363,14 @@ if(jQuery.cookieBar('cookies')){
 </body>
 </html>
 
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -408,8 +416,11 @@ if(jQuery.cookieBar('cookies')){
 </head>
 <body>
   <h1 id="output">Laddar data...</h1>
+ <script>
+  function isImageUrl(url) {
+  return /^https?:\/\/.*\.(jpg|jpeg|png|gif|webp)$/i.test(url);
+}
 
-  <script>
     async function loadSheetData() {
       try {
         const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTNjWE8OLzRAVC9Mt4H1NLYXitG1yUWE61CiSwYStWPBJete0zvhXHVIoXR383ntdqFOn8yIVRHuajh/pub?gid=644303618&single=true&output=csv";
@@ -432,37 +443,47 @@ if(jQuery.cookieBar('cookies')){
         outputContainer.innerHTML = "";
         const containerDiv = document.createElement("div");
         containerDiv.classList.add("data-container");
-        
-        selectedCells.forEach(cell => {
-          const leftText = rows[cell.row]?.[cell.leftCol]?.trim() || "";
-          const rightText = rows[cell.row]?.[cell.rightCol]?.trim() || "";
-          
-          const rowDiv = document.createElement("div");
-          rowDiv.classList.add("row");
-          
-          const leftColDiv = document.createElement("div");
-          leftColDiv.classList.add("left-col");
-          leftColDiv.innerText = leftText;
-          rowDiv.appendChild(leftColDiv);
-          
-          const rightColDiv = document.createElement("div");
-          rightColDiv.classList.add("right-col");
-          rightColDiv.innerText = rightText;
-          rowDiv.appendChild(rightColDiv);
-          
-          containerDiv.appendChild(rowDiv);
-        });
-        
-        outputContainer.appendChild(containerDiv);
-      } catch (error) {
-        document.getElementById("output").innerText = "Ett fel uppstod: " + error.message;
-      }
-    }
+selectedCells.forEach(cell => {
+  const leftText = rows[cell.row]?.[cell.leftCol]?.trim() || "";
+  const rightText = rows[cell.row]?.[cell.rightCol]?.trim() || "";
 
-    loadSheetData();
-  </script>
-</body>
-</html>
+  const rowDiv = document.createElement("div");
+  rowDiv.classList.add("row");
+
+  const leftColDiv = document.createElement("div");
+  leftColDiv.classList.add("left-col");
+  if (isImageUrl(leftText)) {
+    const img = document.createElement("img");
+    img.src = leftText;
+    img.style.maxHeight = "100px";
+    img.style.maxWidth = "100%";
+    leftColDiv.appendChild(img);
+  } else {
+    leftColDiv.innerText = leftText;
+  }
+
+  const rightColDiv = document.createElement("div");
+  rightColDiv.classList.add("right-col");
+  if (isImageUrl(rightText)) {
+    const img = document.createElement("img");
+    img.src = rightText;
+    img.style.maxHeight = "100px";
+    img.style.maxWidth = "100%";
+    rightColDiv.appendChild(img);
+  } else {
+    rightColDiv.innerText = rightText;
+  }
+
+  rowDiv.appendChild(leftColDiv);
+  rowDiv.appendChild(rightColDiv);
+  containerDiv.appendChild(rowDiv);
+});
+
+
+
+
+
+        
 
 <!DOCTYPE html>
 <html lang="sv">
