@@ -1,37 +1,18 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <title>Informationsskylt</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: black;
-      overflow: hidden;
-      height: 100%;
-    }
-    iframe {
-      border: none;
-      width: 100%;
-      height: 100%;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Google Slides Update</title>
+    <script>
+        setInterval(function() {
+            window.location.reload(); // Uppdaterar sidan varje 20 sekunder
+        }, 20000); // 20000 millisekunder = 20 sekunder
+    </script>
 </head>
 <body>
-  <iframe id="slideFrame" src="" allowfullscreen></iframe>
-
-  <script>
-    const baseUrl = "https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/pub?start=true&loop=false&delayms=3000&slide=id.p";
-
-    function updateSlide() {
-      const iframe = document.getElementById("slideFrame");
-      const cacheBuster = "&cb=" + new Date().getTime(); // undvik cache
-      iframe.src = baseUrl + cacheBuster;
-    }
-
-    updateSlide(); // visa första gången
-    setInterval(updateSlide, 20000); // uppdatera var 20:e sekund
-  </script>
+    <h1>Google Slides Presentation</h1>
+    <a href="https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/pub?start=false&loop=false&delayms=3000&slide=id.p" target="_blank">
+        Klicka här för att visa presentationen
+    </a>
 </body>
 </html>
