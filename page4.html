@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
-  <title>Slides Refresher</title>
-  <link rel="stylesheet" href="page4.css" />
-  <script src="page4.js" defer></script>
+  <meta charset="UTF-8">
+  <title>Slidevisning</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: black;
+    }
+    img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
 </head>
 <body>
+  <img id="slide" src="" alt="Slide">
+
+  <script>
+    const img = document.getElementById("slide");
+    const baseUrl = "https://docs.google.com/presentation/d/1c87wfbzoRWof-yt7Rf5YH0HlpMbde-9Mve7-ptCRMWk/export/png?id=1c87wfbzoRWof-yt7Rf5YH0HlpMbde-9Mve7-ptCRMWk&pageid=p";
+
+    function updateImage() {
+      const url = `${baseUrl}&t=${Date.now()}`;
+      img.src = url;
+    }
+
+    updateImage(); // första laddningen
+    setInterval(updateImage, 20000); // uppdatera var 20:e sekund
+  </script>
 </body>
 </html>
