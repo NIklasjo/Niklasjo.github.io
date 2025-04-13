@@ -3,21 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>Presentation</title>
-  <meta http-equiv="refresh" content="20"> <!-- laddar om sidan var 300:e sekund -->
-  <style>
-    html, body {
-      margin: 0;
-      height: 100%;
-      background: black;
-    }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-  </style>
+  <script>
+    // Vänta X minuter och ladda om samma sida tyst
+    setTimeout(() => {
+      location.replace(window.location.href);
+    }, 5 * 60 * 1000); // 5 minuter (300 000 ms)
+  </script>
 </head>
 <body>
-  <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/pubembed?start=true&loop=true&delayms=60000" frameborder="0" width="1440" height="839" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+  <script>
+    // Direkt skicka vidare till presentationen
+    location.replace("https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/pub?start=true&loop=true&delayms=3000");
+  </script>
 </body>
 </html>
