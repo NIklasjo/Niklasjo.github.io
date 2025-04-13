@@ -1,20 +1,42 @@
+
 <!DOCTYPE html>
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
-  <title>Slidesvisning</title>
-  <!-- Ladda om sidan var 20:e sekund -->
-  <meta http-equiv="refresh" content="20;url=https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/pub?start=true&loop=true&delayms=60000">
+  <title>Auto-refresh Slides</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      height: 100%;
-      overflow: hidden;
+      background: black;
+      color: white;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
   </style>
 </head>
 <body>
-  <!-- Presentationen laddas automatiskt, inget mer behövs -->
+  <script>
+    const slideUrl = "https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/pub?start=true&loop=true&delayms=60000";
+    let win;
+
+    function openSlides() {
+      // Stäng tidigare fönster om det finns
+      if (win && !win.closed) {
+        win.close();
+      }
+
+      // Öppna nytt fönster
+      win = window.open(slideUrl, "_blank", "fullscreen=yes");
+    }
+
+    openSlides(); // Kör direkt
+
+    // Kör var 20:e sekund
+    setInterval(openSlides, 20000);
+  </script>
 </body>
 </html>
