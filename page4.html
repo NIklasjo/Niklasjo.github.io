@@ -2,18 +2,19 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
-  <title>Presentation</title>
-  <script>
-    // Vänta X minuter och ladda om samma sida tyst
-    setTimeout(() => {
-      location.replace(window.location.href);
-    }, 20000); // 5 minuter (300 000 ms)
-  </script>
+  <title>Slidesvisning</title>
+  <!-- Ladda om sidan var 20:e sekund -->
+  <meta http-equiv="refresh" content="20;url=https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/pub?start=true&loop=true&delayms=3000">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+  </style>
 </head>
 <body>
-  <script>
-    // Direkt skicka vidare till presentationen
-    location.replace("https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/pub?start=true&loop=true&delayms=3000");
-  </script>
+  <!-- Presentationen laddas automatiskt, inget mer behövs -->
 </body>
 </html>
