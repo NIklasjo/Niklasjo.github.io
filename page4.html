@@ -2,13 +2,27 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
-  <title>Slides Auto Reload</title>
-  <meta http-equiv="refresh" content="10;url=https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/pub?start=true&loop=true&delayms=3000">
+  <title>Informationsskylt</title>
+  <meta http-equiv="refresh" content="20">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      overflow: hidden;
+      height: 100%;
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 <body>
-  <script>
-    // Dirigerar om direkt (för extra säkerhet om meta inte triggar)
-    window.location.href = "https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/pub?start=true&loop=true&delayms=3000";
-  </script>
+  <iframe
+    src="https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/pub?start=true&loop=false&delayms=3000&slide=id.p"
+    allowfullscreen>
+  </iframe>
 </body>
 </html>
