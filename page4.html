@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Informationsskylt</title>
-  <meta http-equiv="refresh" content="10">
   <style>
     html, body {
       margin: 0;
@@ -20,9 +19,19 @@
   </style>
 </head>
 <body>
-  <iframe
-    src="https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/pub?start=true&loop=false&delayms=3000&slide=id.p"
-    allowfullscreen>
-  </iframe>
+  <iframe id="slideFrame" src="" allowfullscreen></iframe>
+
+  <script>
+    const baseUrl = "https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/pub?start=true&loop=false&delayms=3000&slide=id.p";
+
+    function updateSlide() {
+      const iframe = document.getElementById("slideFrame");
+      const cacheBuster = "&cb=" + new Date().getTime(); // undvik cache
+      iframe.src = baseUrl + cacheBuster;
+    }
+
+    updateSlide(); // visa första gången
+    setInterval(updateSlide, 20000); // uppdatera var 20:e sekund
+  </script>
 </body>
 </html>
