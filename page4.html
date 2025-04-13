@@ -2,35 +2,47 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
-  <title>Slidevisning</title>
+  <title>Google Slides Update</title>
   <style>
-    html, body {
+    body {
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+      text-align: center;
       margin: 0;
       padding: 0;
-      background: black;
     }
-    img {
-      width: 100vw;
+    .slides-container {
+      width: 100%;
       height: 100vh;
-      object-fit: contain;
-      display: block;
+    }
+    .slides-container img {
+      width: 100%;
+      height: 100%;
     }
   </style>
 </head>
 <body>
-  <img id="slide" src="" alt="Slide">
+
+  <div id="slidesContainer" class="slides-container">
+    <img id="slidesImage" src="https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/pub?start=false&loop=false&delayms=3000&slide=id.p" alt="Google Slides">
+  </div>
 
   <script>
-    const img = document.getElementById("slide");
-    const baseUrl = "https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/pub?start=false&loop=false&delayms=3000&slide=id.p?v=123456";
+    function reloadSlides() {
+      const slidesContainer = document.getElementById('slidesContainer');
+      const slidesImage = document.getElementById('slidesImage');
 
-    function updateImage() {
-      const url = `${baseUrl}&t=${Date.now()}`;
-      img.src = url;
+      // Temporarily clear the image by setting a different source
+      slidesImage.src = '';
+
+      // Set the image source back to the original URL to reload
+      slidesImage.src = "https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/pub?start=false&loop=false&delayms=3000&slide=id.p";
     }
 
-    updateImage(); // första laddningen
-    setInterval(updateImage, 10000); // uppdatera var 20:e sekund
+    // Reload the slides every 20 seconds
+    setInterval(reloadSlides, 20000);
   </script>
+
 </body>
 </html>
