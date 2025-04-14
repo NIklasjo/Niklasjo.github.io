@@ -1,36 +1,40 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Slidevisning</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fullscreen Presentation</title>
   <style>
     html, body {
       margin: 0;
-      padding: 0;
-      background: black;
+      height: 100%;
+      width: 100%;
+      background-color: black;
+      overflow: hidden;
     }
-    img {
-      width: 100vw;
-      height: 100vh;
-      object-fit: contain;
-      display: block;
+
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Fades in the iframe on load */
+    iframe {
+      opacity: 0;
+      transition: opacity 0.5s ease-in;
+    }
+
+    iframe.loaded {
+      opacity: 1;
     }
   </style>
 </head>
 <body>
-  <img id="slide" src="" alt="Slide">
-
-  <script>
-    const img = document.getElementById("slide");
-    const baseUrl = "https://docs.google.com/presentation/d/1c87wfbzoRWof-yt7Rf5YH0HlpMbde-9Mve7-ptCRMWk/export/png?id=1c87wfbzoRWof-yt7Rf5YH0HlpMbde-9Mve7-ptCRMWk&pageid=p";
-
-    function updateImage() {
-      const url = `${baseUrl}&size=1024`;  // Lägg till högre upplösning med &size
-      img.src = url;
-    }
-
-    updateImage(); // första laddningen
-    setInterval(updateImage, 20000); // uppdatera var 20:e sekund
-  </script>
-</body>
-</html>
+  <iframe
+    id="slide"
+    src="https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/embed?start=true&loop=true&delayms=60000&rm=minimal"
+    allowfullscreen
+    mozallowfullscreen
+    webkitallowfullscreen
+  ></iframe>
