@@ -127,6 +127,17 @@
       background-color: white;
       color: black;
     }
+    .weather-widget {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.75); /* 75% svart transparens */
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    z-index: 5;
+  }
   </style>
 </head>
 <body>
@@ -138,7 +149,16 @@
     mozallowfullscreen
     webkitallowfullscreen>
   </iframe>
-
+  <div class="weather-widget">
+  <iframe 
+    src="https://weatherwidget.io/w/?location=Stockholm&unit=metric&theme=dark" 
+    frameborder="0" 
+    scrolling="no" 
+    width="300" 
+    height="250"
+    style="border: none; overflow: hidden; border-radius: 10px;"
+  ></iframe>
+</div>
   <!-- Widgeten för avgångar -->
   <div class="widget-container">
     <div class="header-container">
