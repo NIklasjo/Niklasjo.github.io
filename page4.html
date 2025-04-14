@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="refresh" content="10" />
   <title>Fullscreen Presentation</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      width: 1920;
-      height: 1080;
+      width: 1920px;
+      height: 1080px;
       background-color: black;
       overflow: hidden;
     }
@@ -20,18 +19,36 @@
       top: 0;
       left: 0;
       border: none;
-      width: 1920;
-      height: 1080;
+      width: 1920px;
+      height: 1080px;
     }
   </style>
 </head>
 <body>
   <iframe 
-    src="https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/embed?start=true&loop=true&delayms=3000&rm=minimal" width="1920" height="1078"
+    src="https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/embed?start=true&loop=true&delayms=3000&rm=minimal"
     allowfullscreen
     mozallowfullscreen
     webkitallowfullscreen>
   </iframe>
+
+  <script>
+    // Ange vilka tider sidan ska laddas om (HH:MM i 24-timmarsformat)
+    const reloadTimes = ["10:12", "10:14", "10:20"];
+
+    function checkTimeAndReload() {
+      const now = new Date();
+      const hhmm = now.toTimeString().slice(0, 5); // t.ex. "12:00"
+
+      if (reloadTimes.includes(hhmm)) {
+        console.log("Reloading at", hhmm);
+        location.reload();
+      }
+    }
+
+    // Kolla varje minut
+    setInterval(checkTimeAndReload, 60 * 1000);
+  </script>
 </body>
 </html>
 
