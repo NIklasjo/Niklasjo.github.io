@@ -153,16 +153,29 @@
     mozallowfullscreen
     webkitallowfullscreen>
   </iframe>
+
+
+
+
+  
   <div class="weather-widget">
-  <iframe 
-    src="https://weatherwidget.io/w/?location=Stockholm&unit=metric&theme=dark" 
-    frameborder="0" 
-    scrolling="no" 
-    width="300" 
-    height="250"
-    style="border: none; overflow: hidden; border-radius: 10px;"
-  ></iframe>
+  <a class="weatherwidget-io" href="https://forecast7.com/sv/59d3318d07/stockholm/" data-label_1="STOCKHOLM" data-label_2="Väder" data-theme="dark" data-basecolor="rgba(0, 0, 0, 0.75)" >STOCKHOLM Väder</a>
 </div>
+
+<script>
+  !function(d,s,id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)){
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://weatherwidget.io/js/widget.min.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }
+  }(document, 'script', 'weatherwidget-io-js');
+</script>
+
+
+
+  
   <!-- Widgeten för avgångar -->
   <div class="widget-container">
     <div class="header-container">
