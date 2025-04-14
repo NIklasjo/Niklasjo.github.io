@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="refresh" content="60" />
   <title>Fullscreen Presentation</title>
   <style>
     html, body {
@@ -26,11 +25,23 @@
   </style>
 </head>
 <body>
-  <iframe
+  <iframe id="slides" 
     src="https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/embed?start=true&loop=true&delayms=60000&rm=minimal"
     allowfullscreen
     mozallowfullscreen
-    webkitallowfullscreen
-  ></iframe>
+    webkitallowfullscreen>
+  </iframe>
+
+  <script>
+    // Uppdatera var 15:e sekund (15 000 ms)
+    const reloadInterval = 15 * 1000;
+    const iframe = document.getElementById("slides");
+    const originalSrc = iframe.src;
+
+    setInterval(() => {
+      const newSrc = originalSrc + "&ts=" + new Date().getTime();
+      iframe.src = newSrc;
+    }, reloadInterval);
+  </script>
 </body>
 </html>
