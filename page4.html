@@ -3,48 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="refresh" content="60" />
   <title>Fullscreen Presentation</title>
   <style>
     html, body {
       margin: 0;
-      height: 100%;
-      width: 100%;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
       background-color: black;
       overflow: hidden;
     }
 
     iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       border: none;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 0.5s ease-in;
-    }
-
-    iframe.loaded {
-      opacity: 1;
+      width: 100vw;
+      height: 100vh;
     }
   </style>
 </head>
 <body>
   <iframe
-    id="slide"
     src="https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/embed?start=true&loop=true&delayms=60000&rm=minimal"
     allowfullscreen
     mozallowfullscreen
     webkitallowfullscreen
   ></iframe>
-
-  <script>
-    const iframe = document.getElementById("slide");
-    iframe.onload = () => {
-      iframe.classList.add("loaded");
-    };
-
-    // Undvik meta-refresh, använd detta för tyst reload
-    setTimeout(() => {
-      window.location.reload();
-    }, 10 * 60 * 1000); // 10 minuter
-  </script>
 </body>
 </html>
