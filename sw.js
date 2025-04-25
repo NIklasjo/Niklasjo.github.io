@@ -1,9 +1,30 @@
-const CACHE_NAME = 'signage-cache-v1';
-const URLS_TO_CACHE = [ '/', '/index.html', '/slides_fallback.html', '/sw.js', 'https://weatherwidget.io/js/widget.min.js' ];
-self.addEventListener('install', e => e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(URLS_TO_CACHE))));
-self.addEventListener('fetch', e => {
-  const req = e.request;
-  if (req.url.includes('docs.google.com')) e.respondWith(fetch(req).catch(() => caches.match('/slides_fallback.html')));
-  else                          e.respondWith(fetch(req).catch(() => caches.match(req)));
+/* Service Worker för att cacha offline-innehåll */
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open('offline-cache-v1').then(function(cache) {
+      return cache.addAll([
+        'index.html',
+        'slides_fallback.html'
+      ]);
+    })
+  );
 });
-self.addEventListener('activate', e => e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k!==CACHE_NAME).map(k => caches.delete(k))))));
+
+// Hantera requests
+self.addEventListener('fetch', function(event) {
+  if (event.request.mode === 'navigate') {
+    // Navigation: försök nätverk, annars fallback
+    event.respondWith(
+      fetch(event.request).catch(function(error) {
+        return caches.match('slides_fallback.html');
+      })
+    );
+  } else {
+    // Övriga resurser: försök cache först, annars nätverk
+    event.respondWith(
+      caches.match(event.request).then(function(response) {
+        return response || fetch(event.request);
+      })
+    );
+  }
+});
