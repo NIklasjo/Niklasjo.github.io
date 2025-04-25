@@ -1,13 +1,94 @@
-<!-- slides_fallback.html -->
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Offline-fallback Presentation</title>
-  <style>body{margin:0;background:black;}img{width:100vw;height:100vh;object-fit:cover;}</style>
+  <meta charset="utf-8">
+  <title>Skyltvisning - Offline-läge</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+    .message {
+      text-align: center;
+      padding: 50px;
+    }
+    .message h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    .sl-widget {
+      padding: 10px;
+    }
+    .sl-widget table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      font-size: 1.2em;
+    }
+    .sl-widget th, .sl-widget td {
+      padding: 8px;
+      text-align: left;
+    }
+    .sl-widget th {
+      border-bottom: 1px solid #fff;
+    }
+    .line-number {
+      font-weight: bold;
+      padding: 4px 8px;
+      border-radius: 4px;
+      color: #fff;
+    }
+    .line-4  { background-color: #E8112D; }
+    .line-73 { background-color: #5499C7; }
+    /* ... */
+  </style>
+  <script>
+    // Om nätverket finns vid inläsning, gå direkt tillbaka till index
+    if (navigator.onLine) {
+      window.location.href = 'index.html';
+    }
+    // Lyssna på online-händelsen för att gå tillbaka till live-sidan
+    window.addEventListener('online', function() {
+      window.location.href = 'index.html';
+    });
+  </script>
 </head>
 <body>
-  <img src="fallback_screenshot.png" alt="Offline Presentation Fallback">
+  <div class="message">
+    <h1>Ingen nätverksanslutning</h1>
+    <p>Visar lokalt innehåll istället för live Google Slides.</p>
+  </div>
+  <!-- SL-widget (statiskt innehåll eller senaste uppdatering) -->
+  <div class="sl-widget">
+    <table>
+      <thead>
+        <tr><th>Linje</th><th>Destination</th><th>Avgår om</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="line-number line-4">4</td>
+          <td>Centralstationen</td>
+          <td>-- min</td>
+        </tr>
+        <tr>
+          <td class="line-number line-73">73</td>
+          <td>Sockenplan</td>
+          <td>-- min</td>
+        </tr>
+        <!-- Statiska rader eller senaste kända avgångar -->
+      </tbody>
+    </table>
+  </div>
+  <script>
+    // Registrera Service Worker i fallback-sidan
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(function() { console.log('Service Worker registrerad (fallback).'); })
+        .catch(function(error) { console.log('SW-registrering misslyckades:', error); });
+    }
+  </script>
 </body>
 </html>
