@@ -26,19 +26,19 @@
       z-index: 0;
     }
 
-.container {
-  width: 1920px;
-  height: 1080px;
-  margin: 0 auto;        /* centrera boxen */
-  position: relative;    /* för absoluta positioner inuti */
-}
 .widget-container {
   position: absolute;
-  bottom: 2px;
-  right: calc((100% - 1920px)/2 + 414px);
-  /* räknar ut avståndet från högerkanten av visningsytan in till 
-     kanten på 1920-boxen + ditt 414px-offset */
+  bottom: 0.19vh;     /* ~2px på 1080px, men skalar med höjden */
+  right: 21.6vw;      /* ~414px på 1920px, men skalar med bredden */
+  width: 296px;       /* du kan också byta till t.ex. 15% eller 18vw om du vill skala bredden */
+  height: 543px;      /* eller 50vh om du vill att höjden anpassas */
+  overflow: hidden;
+  padding: 10px;
+  background-color: rgba(0,0,0,0.75);
+  box-shadow: 0 0 10px rgba(0,0,0,0.7);
+  z-index: 2;
 }
+
 
 
     .header-container {
