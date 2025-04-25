@@ -3,6 +3,7 @@ const URLS_TO_CACHE = [
   '/',
   '/index.html',
   '/sw.js',
+  '/backup-slide.jpg',  
   'https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/embed?start=true&loop=true&delayms=25000&rm=minimal',
   'https://weatherwidget.io/js/widget.min.js'
 ];
