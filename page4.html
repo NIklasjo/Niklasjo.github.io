@@ -59,7 +59,7 @@
     allowfullscreen mozallowfullscreen webkitallowfullscreen>
   </iframe>
 
-  <!-- Väder-widget -->
+   <!-- Väder-widget -->
   <div class="weather-widget">
     <a class="weatherwidget-io" href="https://forecast7.com/sv/59d3318d07/stockholm/"
        data-label_1="SUNDBYBERG" data-label_2="Väder"
@@ -76,20 +76,96 @@
 
   <!-- SL-widget -->
   <div class="widget-container" id="sl-widget">
-    <!-- befintlig avgångs-kod här -->
+    <div class="header-container">
+      <div class="logo-and-title">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA..." alt="SL Logo" />
+        <h3 style="margin: 0; font-size: 20px; color: white;">Avgångar</h3>
+      </div>
+      <div class="real-time-clock" id="real-time-clock"></div>
+    </div>
+    <table id="departuresTable">
+      <thead>
+        <tr>
+          <th>Avgångar</th><th></th><th>Linje</th><th>Destination</th><th>Avgång</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
   </div>
 
-  <!-- Offline/Online hantering för slides -->
+  <!-- SL fetch & realtime script -->
   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function updateClock() {
+        const now = new Date();
+        document.getElementById('real-time-clock').textContent = now.toLocaleTimeString('sv-SE', {hour:'2-digit',minute:'2-digit',second:'2-digit'});
+      }
+      setInterval(updateClock, 1000);
+      updateClock();
+
+      const stations = [
+        { siteId: 9324, name: 'Duvbo', allowedDestinations: ['Kungsträdgården', 'Hjulsta'], shortColor: '#007ac2', longColor: '#000000' },
+        { siteId: 3512, name: 'Sundbybergs skola', longColor: '#000000' },
+        { siteId: 9325, name: 'Sundbybergs station', allowedDestinations: ['Sickla', 'Solna station'], color: '#ff7f00' }
+      ];
+
+      async function fetchDepartures() {
+        const now = new Date();
+        const lowerBound = new Date(now.getTime() + 2 * 60000);
+        const futureTime = new Date(now.getTime() + 25 * 60000);
+        const allDepartures = [];
+        const usedKeys = {};
+
+        for (const station of stations) {
+          try {
+            const res = await fetch(`https://transport.integration.sl.se/v1/sites/${station.siteId}/departures`);
+            if (!res.ok) throw new Error();
+            const data = await res.json();
+            data.departures.forEach(dep => {
+              const depTime = new Date(dep.expected);
+              if (depTime < lowerBound || depTime > futureTime) return;
+              if (station.allowedDestinations) {
+                const ok = station.allowedDestinations.some(d => dep.destination.toLowerCase().includes(d.toLowerCase()));
+                if (!ok) return;
+              }
+              const key = `${station.siteId}-${dep.line.designation}-${dep.destination}-${dep.expected}`;
+              if (usedKeys[key]) return;
+              usedKeys[key] = true;
+              allDepartures.push({
+                stop: station.name,
+                line: dep.line.designation,
+                destination: dep.destination,
+                time: depTime.toLocaleTimeString('sv-SE',{hour:'2-digit',minute:'2-digit',second:'2-digit'}),
+                color: station.name === 'Duvbo' ? (dep.line.designation.length===2 ? station.shortColor : station.longColor) : (station.name==='Sundbybergs station' ? station.color : station.longColor)
+              });
+            });
+          } catch {}
+        }
+        allDepartures.sort((a,b) => a.time.localeCompare(b.time));
+        const tbody = document.querySelector('#departuresTable tbody');
+        tbody.innerHTML = '';
+        allDepartures.forEach(dep => {
+          let tSymbol = '';
+          if (dep.stop === 'Duvbo' && dep.line.length === 2) {
+            tSymbol = `<div class="sl-container"><div class="circle"></div><div class="letter-t"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="20" width="60" height="20" fill="white"/><rect x="40" y="40" width="20" height="40" fill="white"/></svg></div></div>`;
+          }
+          const cls = dep.line.length===2 && dep.stop==='Duvbo' ? 'short' : 'long';
+          const textColor = dep.stop==='Sundbybergs skola' ? 'color:white;' : '';
+          const row = document.createElement('tr');
+          row.innerHTML = `<td>${dep.stop}</td><td>${tSymbol}</td><td><span class="line-number ${cls}" style="background-color:${dep.color};${textColor}">${dep.line}</span></td><td>${dep.destination}</td><td>${dep.time}</td>`;
+          tbody.appendChild(row);
+        });
+      }
+      fetchDepartures();
+      setInterval(fetchDepartures, 20000);
+    });
+
+    // Offline/Online hantering för slides
     const slidesIframe = document.getElementById('slides');
     const LIVE_SRC = slidesIframe.src;
     const FALLBACK_SRC = 'slides_fallback.html';
-    window.addEventListener('offline', () => {
-      slidesIframe.src = FALLBACK_SRC;
-    });
-    window.addEventListener('online', () => {
-      slidesIframe.src = LIVE_SRC;
-    });
+    window.addEventListener('offline',  () => slidesIframe.src = FALLBACK_SRC);
+    window.addEventListener('online',   () => slidesIframe.src = LIVE_SRC);
   </script>
 
   <!-- Service Worker-registrering -->
@@ -102,6 +178,5 @@
       });
     }
   </script>
-
 </body>
 </html>
