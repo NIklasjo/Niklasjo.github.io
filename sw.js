@@ -1,9 +1,10 @@
+// sw.js
 const CACHE_NAME = 'signage-cache-v1';
 const URLS_TO_CACHE = [
   '/',
   '/index.html',
   '/sw.js',
-  '/backup-slide.jpg',  
+  '/backup-slide.jpg',   // ← BACKUP-TILLÄGG: cache för backup-bild
   'https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/embed?start=true&loop=true&delayms=25000&rm=minimal',
   'https://weatherwidget.io/js/widget.min.js'
 ];
@@ -19,9 +20,11 @@ self.addEventListener('install', function(event) {
 
 self.addEventListener('fetch', function(event) {
   event.respondWith(
-    fetch(event.request).catch(function() {
-      return caches.match(event.request);
-    })
+    fetch(event.request)
+      .catch(function() {
+        // För alla försök: falla tillbaka på exakt samma URL i cachen
+        return caches.match(event.request);
+      })
   );
 });
 
