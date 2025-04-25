@@ -326,33 +326,35 @@
     }
   </script>
 
-  <!-- BACKUP-TILLÄGG ▼: Daglig högupplöst backup och offline-fallback -->
+  <!-- BACKUP-TILLÄGG ▼: Daglig högupplöst backup och smart offline-fallback -->
   <script>
     const BACKUP_URL = '/backup-slide.jpg';
     const EXPORT_URL = 'https://docs.google.com/presentation/d/e/2PACX-1vRi-AkpEvBey5vRYncDsIq-yLJcEd9ziAHt2KA-9jPCuVlHfbmb1o3HF3_--FcuMWudWyUi9qh-OscW/export/jpeg?w=1920&h=1080';
     const ONE_DAY = 24 * 60 * 60 * 1000;
 
+    // Hämtar exporten med no-cors så vi kan cache:a den
     async function updateBackupImage() {
       const last = localStorage.getItem('slideBackupTs');
       const now = Date.now();
       if (!last || now - last > ONE_DAY) {
         try {
-          const res = await fetch(EXPORT_URL);
-          if (res.ok) {
-            const blob = await res.blob();
-            const cache = await caches.open('signage-cache-v1');
-            await cache.put(BACKUP_URL, new Response(blob));
-            localStorage.setItem('slideBackupTs', now);
-            console.log('Backup-slide uppdaterad.');
-          }
+          const res = await fetch(EXPORT_URL, { mode: 'no-cors' });
+          // OK för opaque-responds
+          const blob = await res.blob();
+          const cache = await caches.open('signage-cache-v1');
+          await cache.put(BACKUP_URL, new Response(blob));
+          localStorage.setItem('slideBackupTs', now);
+          console.log('Backup-slide uppdaterad.');
         } catch (e) {
           console.warn('Misslyckades hämta backup-slide:', e);
         }
       }
     }
 
-    function applyOfflineFallback() {
-      if (!navigator.onLine) {
+    // Visar backup-bilden ENDAST om vi är offline och faktiskt har en cachad backup
+    async function applyOfflineFallback() {
+      const hasBackup = !!localStorage.getItem('slideBackupTs');
+      if (!navigator.onLine && hasBackup) {
         const slides = document.getElementById('slides');
         if (slides) {
           slides.style.display = 'none';
@@ -377,10 +379,14 @@
       }
     }
 
-    updateBackupImage();
-    window.addEventListener('online', () => { updateBackupImage(); applyOfflineFallback(); });
+    // Kör både på load och när nätet kommer tillbaka
+    async function initBackup() {
+      await updateBackupImage();
+      await applyOfflineFallback();
+    }
+    window.addEventListener('load', initBackup);
+    window.addEventListener('online', initBackup);
     window.addEventListener('offline', applyOfflineFallback);
-    window.addEventListener('load', applyOfflineFallback);
   </script>
   <!-- BACKUP-TILLÄGG ▲ -->
 </body>
