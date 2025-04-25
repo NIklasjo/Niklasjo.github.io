@@ -26,13 +26,20 @@
       z-index: 0;
     }
 
-    .widget-container {
-  bottom: 2%;     /* 2% av viewport-höjden */
-  right: 22%;     /* 22% av viewport-bredden */
-  width: 15%;     /* 15% av viewport-bredden */
-  height: 50%;    /* 50% av viewport-höjden */
-  /* ... resten oförändrat ... */
+.container {
+  width: 1920px;
+  height: 1080px;
+  margin: 0 auto;        /* centrera boxen */
+  position: relative;    /* för absoluta positioner inuti */
 }
+.widget-container {
+  position: absolute;
+  bottom: 2px;
+  right: calc((100% - 1920px)/2 + 414px);
+  /* räknar ut avståndet från högerkanten av visningsytan in till 
+     kanten på 1920-boxen + ditt 414px-offset */
+}
+
 
     .header-container {
       display: flex;
