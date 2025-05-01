@@ -231,8 +231,8 @@
 
         for (const station of stations) {
           try {
-            const response = await fetch(https://transport.integration.sl.se/v1/sites/${station.siteId}/departures);
-            if (!response.ok) throw new Error(Nätverksfel för station ${station.name});
+            const response = await fetch(`https://transport.integration.sl.se/v1/sites/${station.siteId}/departures`);
+            if (!response.ok) throw new Error(`Nätverksfel för station ${station.name}`);
             const data = await response.json();
 
             if (data && data.departures) {
@@ -256,7 +256,7 @@
                   usedColor = station.color || '#000000';
                 }
 
-                const key = ${station.siteId}-${line}-${dest}-${dep.expected};
+                const key = `${station.siteId}-${line}-${dest}-${dep.expected}`;
                 if (!usedKeys[key]) {
                   usedKeys[key] = true;
                   allDepartures.push({
@@ -270,7 +270,7 @@
               });
             }
           } catch (error) {    
-            console.error(Fel vid hämtning från ${station.name}:, error);
+            console.error(`Fel vid hämtning från ${station.name}:`, error);
           }
         }
 
@@ -281,19 +281,19 @@
         allDepartures.forEach(dep => {
           let tSymbol = '';
           if (dep.stop === 'Duvbo' && dep.line.length === 2) {
-            tSymbol = <div class="sl-container"><div class="circle"></div><div class="letter-t"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="20" width="60" height="20" fill="white"/><rect x="40" y="40" width="20" height="40" fill="white"/></svg></div></div>;
+            tSymbol = `<div class="sl-container"><div class="circle"></div><div class="letter-t"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="20" width="60" height="20" fill="white"/><rect x="40" y="40" width="20" height="40" fill="white"/></svg></div></div>`;
           }
           const textColorStyle = (dep.stop === 'Sundbybergs skola') ? 'color: white;' : '';
           const numClass = (dep.stop === 'Duvbo' && dep.line.length === 2) ? 'short' : 'long';
 
           const row = document.createElement('tr');
-          row.innerHTML = 
+          row.innerHTML = `
             <td>${dep.stop}</td>
             <td>${tSymbol}</td>
             <td><span class="line-number ${numClass}" style="background-color: ${dep.color}; ${textColorStyle}">${dep.line}</span></td>
             <td>${dep.destination}</td>
             <td>${dep.time}</td>
-          ;
+          `;
           tbody.appendChild(row);
         });
       }
@@ -303,23 +303,7 @@
     });
   </script>
 
-  <!-- Service Worker-registrering -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/sw.js')
-          .then(function (registration) {
-            console.log('ServiceWorker registrerad: ', registration.scope);
-          })
-          .catch(function (error) {
-            console.log('ServiceWorker registrering misslyckades: ', error);
-          });
-      });
-    }
-  </script>
-
-  <!-- BACKUP-TILLÄGG ▼: Daglig högupplöst backup och smart offline-fallback -->
-
+  
 
   <!-- Slides Overlay som widget -->
   <div class="slides-overlay-widget">
